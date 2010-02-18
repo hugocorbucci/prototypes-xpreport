@@ -35,32 +35,36 @@
 % \index{Dean, Jeffrey}
 
 \begin{abstract}        % give a summary of your paper
+
+%TODO Abstract
 This paper shows you how to handle prototype projects.
 %                         please supply keywords within your abstract
+
+%TODO Keywords
 \keywords {prototype, agile methods, }
 \end{abstract}
 %
 \section{Introduction}
 
-%TODO Review the uses of first person and third person.
+% TODO Review the uses of first person and third person.
 Prototyping is one activity that most developer have heard
 about. However it is also one of the most feared ones by those who had
-some experience with it. The experience is, most of the time,
-traumatic because developers end up having to integrate the prototype
-to the final product and maintain it. Developers that have been
-through the pain to maintain and distribute what once was a prototype
-hardly accept to work with prototypes anymore. If they are forced to,
-they make it so that there will be absolutely no way to integrate the
-prototype to the existing system by either using a different platform,
-language or even creating prototypes in other medias.
+some experience with it. Most of the times, that experience was
+traumatic because developers ended up having to integrate the
+prototype to the final product and maintain it. Developers that have
+been through such pain hardly accept to work with prototypes
+anymore. If they are forced to, they make it so that there will be
+absolutely no way to integrate the prototype to the existing system by
+either using a different platform, language or even creating
+prototypes in other medias.
 
 The main reported issue with software prototypes is that, if they are
 successful, the clients/stakeholders/users do not see why more effort
 should be invest in the prototypes. They, therefore, switch priorities
 and work efforts to other parts of the system and let the rough
-prototype lost within the system. Months or years later, the prototype
+prototype lost within the code base. Months or years later, the prototype
 becomes an importat part of the system but is filled with bugs,
-unhandled corner cases and, most of the time, crappy code. Nobody
+unhandled corner cases and, frequently, crappy code. Nobody
 remembers what it was supposed to do or whether it is really
 important. Maintainability gets deeply affected and developers have
 that natural and unpleasant I-told-you-so feeling.
@@ -91,37 +95,45 @@ help to evolve this idea. The company's job at the time was to scout
 the market, discover competitors and provide an estimation of the work
 needed to turn the client's idea into working software.
 
-For such work, the company assigned one consultant to understand what
-were the client's needs and desires and two developers to analyse the
-existing software and evaluate the possible development paths. After
-about 3 weeks of consulting and studies, we handed a deck full of
-story cards estimated with the use of two platforms. The first one, an
-existing open source software with several features and a copyleft
-license. The second one, an Eclipse Rich Client Application using
-Eclipse's open source framework as the basis for a new software.
+For such work, one consultant was assigned to understand what were the
+client's needs and desires and two developers were asked to analyse
+the existing software and evaluate the possible development
+paths. After about 3 weeks of consulting and studies, the team handed
+a deck full of story cards estimated with the use of two
+platforms. The first one was an existing open source software with
+several features and a copyleft license. The second one was an Eclipse
+Rich Client Application using Eclipse's open source framework as the
+basis for a new software.
 
-Our first estimation suggested that a four people team with a
+That first estimation suggested that a four people team with a
 half-time dedication would be able to build a partially working
 prototype of each feature described in about nine months of
 development using the existing open source software and about one year
-using eclipse's platform. For a full featured system, the estimation
-was over 2 years of work. Our client opted for the eclipse based
-solution because his investment plan was to keep the solution closed
-source and sell the project to external investors. He also chose to
-have just a prototype version since 2 years seemed like a too heavy
-investment for him alone. With such choice, the contract changed from
-a consulting one to a development one.
+using eclipse's platform. The open source solution had the advantage
+to provide full functionality of several other features.  For a full
+featured system, the estimation was over 2 years of work on the
+Eclipse version and about a year and a half for the open source one.
 
-The client hired the company to provide a 4 developers team working on
-an open scope providing 160 hours of work each month. Our contract
-specificaly stated that the developers would work on pairs all the
-time and we were supposed to handle automated tests along with the
-production code. The project goal was to create a software prototype
-with most faked (or simplified) features and a few working ones. Our
-client would use this prototype to present his ideas to some investors
-by October 2008 and therefore either end the project or boost its
-development to a full featured system depending of the outcome of the
-meeting with investors.
+After some discussion, the client opted for the eclipse based solution
+because his business plan was to keep the solution closed source and
+sell the project to external investors. He also chose to have just a
+prototype version since 2 years seemed like a too heavy investment for
+him alone.
+
+Such choice terminated the consulting contract and created a new one
+with a majority of development time and a few hours of
+consulting. Originally, this new contract mentioned a 4 developers
+team working on an open scope providing 160 hours of work each
+month. It specifically stated that the developers would work on pairs
+all the time and that the developed system should have automated tests
+to the production code.
+
+The project goal was to create a software prototype with most faked
+(or simplified) features and a few working ones. Our client would use
+this prototype to present his ideas to some investors by October 2008
+and therefore either end the project or boost its development to a
+full featured system depending of the outcome of the meeting with
+investors.
 
 That was our vision of the project when the development begun. Our
 target was to provide an excelent support for the show case our client
