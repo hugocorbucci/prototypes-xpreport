@@ -8,6 +8,7 @@
 \usepackage{makeidx}  % allows for indexgeneration
 % \makeindex          % be prepared for an author index
 %
+\newcommand{\mari}[1]{\footnote{MARI: #1}}
 \begin{document}
 %
 \mainmatter              % start of the contribution
@@ -46,53 +47,64 @@ This paper shows you how to handle prototype projects.
 %
 \section{Introduction}
 
-Prototyping is one activity that most developer have heard about. Fred
-Brooks mentioned it in The Mythical Man-Month \cite{Brooks1975} and
-most agile methods adopt various ideas related to
-prototyping. Nevertheless, it is also one of the most feared practices
-by those who had some experience with it.
+Prototyping is one\mari{an} activity that most developer\mari{developers} have
+heard about. Fred Brooks mentioned it in The Mythical Man-Month
+\cite{Brooks1975} and most agile methods adopt various ideas related to
+prototyping. Nevertheless, it is also one of the most feared\mari{"feared"
+parece uma palavra estranha, meio extrema... é isso mesmo?} practices by those
+who had some experience with it.
 
-Most of the times, using software prototypes is traumatic because
-successful prototypes look very much like full features and customers
-usually want to integrate the prototypes to the working system and
-move on. However, prototypes are frequently created in a ``quick and
-dirty'' fashion and the result is not adequate to be incorporated in a
-full featured system. It is, however, quite hard to explain this fact
-to the stakeholders who usually do not want to spend any more money in
-this ``already working'' feature.
+Most of the times\mari{Usually, in an Agile context}, using software prototypes
+is traumatic because\mari{Talvez o ponto todo fique mais claro se vc inverter a
+ordem: começa só contando a historia, e no final conclui que isso é traumatico}
+successful prototypes look very much like full\mari{complete} features and
+customers usually\mari{tira esse usually?} want to integrate the prototypes to
+the working system and move on. However,\mari{The problem is that} prototypes
+are frequently created in a ``quick and dirty'' fashion and the result is not
+adequate to be incorporated in a full featured\mari{acho que deveria ser
+"full-featured"} system. It is, however,\mari{prefiro "However, it is"} quite
+hard to explain this fact to the stakeholders who usually do not want to spend
+any more money\mari{do not want to invest any more} in this ``already working''
+feature.
 
-They, therefore, switch priorities and work efforts to other parts of
-the system and let the rough prototype lost within the code
-base. Months or years later, the prototype becomes an importat part of
-the system but is filled with bugs, unhandled corner cases and,
-frequently, crappy code. Nobody remembers what it was supposed to do
-or whether it is really important. Maintainability gets deeply
-affected and developers have that natural and unpleasant I-told-you-so
-feeling.
+\mari{parece que nao deveria quebrar paragrafo aqui, vc continua contando a
+mesma historinha} They, therefore, switch priorities and work efforts to other
+parts of the system and let\mari{leave} the rough prototype lost within the code
+base. Months or years later, the prototype becomes an importat\mari{important -
+é isso mesmo que quis dizer? pq logo ali embaixo vc diz que ninguem sabe se é
+mesmo importante} part of the system but is filled with bugs, unhandled corner
+cases and, frequently, crappy code. Nobody remembers what it was supposed to do
+or whether it is really important. Maintainability gets deeply affected and
+developers have that natural and unpleasant I-told-you-so feeling.
 
-Developers that have been through the pain of maintaing those dirty
-prototypes hardly accept to work with prototypes anymore. If they are
-forced to, they make it so that there will be absolutely no way to
-integrate the prototype to the existing system by either using a
-different platform, language or even creating prototypes in other
-medias. That inflexibility can reduce the capacity of responding to
-changes quickly and therefore harm the clients' interests.
+Developers that have been through the pain of maintaing those dirty prototypes
+hardly accept to work with prototypes anymore\mari{isso é mesmo verdade? me
+parece meio forçado. talvez algo mais como "eles não querem"}. If they are
+forced to, they make it so that there will be absolutely no way to integrate the
+prototype to the existing system by either using a different platform, language
+or even creating prototypes in other medias. That inflexibility can reduce the
+capacity of responding to changes quickly and therefore harm the clients'
+interests.
 
-This paper presents how a four colocated people team managed to start
-a prototyping project and evolve it naturally to a full featured
-software. The organization of this work follows a chronological order
-as the project evolved softly from a series of prototyped features to
-a full featured software. Section \ref{sec:start} will present the
-project as the team received it. Section \ref{sec:working} presents
-the working system established by the team to create the software
-based on prototypes. After some time, the team felt that the customer
-was shifting to a full featured idea as described in Section
-\ref{sec:changes}. The following section (Section \ref{sec:adapting})
-shows how the team adapted to those changes to accomodate both
-ideas. Finally Section \ref{sec:nowadays} presents the current status
-of the project and Section \ref{sec:conclusion} concludes with a
-summary of practices that were useful to pass through this experience
-without that much pain.
+This paper presents how a four colocated people team\mari{four-people collocated
+team} managed to start a prototyping project and evolve it naturally to a full
+featured\mari{full-featured} software. The organization of this work follows a
+chronological order as the project evolved softly from a series of prototyped
+features to a full featured software\mari{vc acabou de falar que evolui de
+prototipos pra full-featured, aí repete na frase seguinte. podia terminar essa
+segunda frase apos o "order" ou "evolved".}. Section \ref{sec:start} will
+present the project as the team received\mari{as the team first received it -
+received parece estranho, que tal "as it was first presented to the team" ou
+algo assim?} it. Section \ref{sec:working} presents the working system\mari{o
+que é working system? sistema de trabalho? acho que algo como "work process" é
+melhor} established by the team to create the software based on prototypes.
+After some time, the team felt that the customer was shifting to a full featured
+idea as described in Section \ref{sec:changes}. The following section (Section
+\ref{sec:adapting}) shows how the team adapted to those changes to
+accomodate\mari{acommodate} both ideas. Finally Section \ref{sec:nowadays}
+presents the current status of the project and Section \ref{sec:conclusion}
+concludes with a summary of practices that were useful to pass through this
+experience without that much pain\mari{without much pain - eu tiraria o that}.
 
 \section{Starting the project}
 \label{sec:start}
