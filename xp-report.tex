@@ -24,10 +24,10 @@
 \authorrunning{Hugo Corbucci et al.}   % abbreviated author list (for running head)
 %
 %%%% list of authors for the TOC (use if author list has to be modified)
-\tocauthor{Hugo Corbucci}
+\tocauthor{Hugo Corbucci and Mariana V. Bravo}
 %
 \institute{Agilbits, Sao Paulo, Brazil,\\
-\email{hugo@agilbits.com.br}}
+\email{{hugo,marivb}@agilbits.com.br}}
 
 \maketitle              % typeset the title of the contribution
 % \index{Ekeland, Ivar} % entries for the author index
@@ -46,28 +46,37 @@ This paper shows you how to handle prototype projects.
 %
 \section{Introduction}
 
-% TODO Review the uses of first person and third person.
-Prototyping is one activity that most developer have heard
-about. However it is also one of the most feared ones by those who had
-some experience with it. Most of the times, that experience was
-traumatic because developers ended up having to integrate the
-prototype to the final product and maintain it. Developers that have
-been through such pain hardly accept to work with prototypes
-anymore. If they are forced to, they make it so that there will be
-absolutely no way to integrate the prototype to the existing system by
-either using a different platform, language or even creating
-prototypes in other medias.
+Prototyping is one activity that most developer have heard about. Fred
+Brooks mentioned it in The Mythical Man-Month \cite{Brooks1975} and
+most agile methods adopt various ideas related to
+prototyping. Nevertheless, it is also one of the most feared practices
+by those who had some experience with it.
 
-The main reported issue with software prototypes is that, if they are
-successful, the clients/stakeholders/users do not see why more effort
-should be invest in the prototypes. They, therefore, switch priorities
-and work efforts to other parts of the system and let the rough
-prototype lost within the code base. Months or years later, the prototype
-becomes an importat part of the system but is filled with bugs,
-unhandled corner cases and, frequently, crappy code. Nobody
-remembers what it was supposed to do or whether it is really
-important. Maintainability gets deeply affected and developers have
-that natural and unpleasant I-told-you-so feeling.
+Most of the times, using software prototypes is traumatic because
+successful prototypes look very much like full features and customers
+usually want to integrate the prototypes to the working system and
+move on. However, prototypes are frequently created in a ``quick and
+dirty'' fashion and the result is not adequate to be incorporated in a
+full featured system. It is, however, quite hard to explain this fact
+to the stakeholders who usually do not want to spend any more money in
+this ``already working'' feature.
+
+They, therefore, switch priorities and work efforts to other parts of
+the system and let the rough prototype lost within the code
+base. Months or years later, the prototype becomes an importat part of
+the system but is filled with bugs, unhandled corner cases and,
+frequently, crappy code. Nobody remembers what it was supposed to do
+or whether it is really important. Maintainability gets deeply
+affected and developers have that natural and unpleasant I-told-you-so
+feeling.
+
+Developers that have been through the pain of maintaing those dirty
+prototypes hardly accept to work with prototypes anymore. If they are
+forced to, they make it so that there will be absolutely no way to
+integrate the prototype to the existing system by either using a
+different platform, language or even creating prototypes in other
+medias. That inflexibility can reduce the capacity of responding to
+changes quickly and therefore harm the clients' interests.
 
 This paper presents how a four colocated people team managed to start
 a prototyping project and evolve it naturally to a full featured
@@ -129,78 +138,114 @@ all the time and that the developed system should have automated tests
 to the production code.
 
 The project goal was to create a software prototype with most faked
-(or simplified) features and a few working ones. Our client would use
-this prototype to present his ideas to some investors by October 2008
-and therefore either end the project or boost its development to a
-full featured system depending of the outcome of the meeting with
-investors.
+(or simplified) features and a few working ones. The client would use
+this prototype to present his ideas to some investors in Hollywood by
+October 2008. This meeting would either boost the project's
+development to a full featured system if the investors liked the idea
+or end its development in case they rejected the proposition.
 
-That was our vision of the project when the development begun. Our
-target was to provide an excelent support for the show case our client
-would have to gather investments. The next section (Section
-\ref{sec:working}) describes how we organized to handle such plan.
+That was the team's vision of the project when the development
+begun. A short seven months project whose fate would be decided by its
+capacity to impress Hollywood investors. Therefore, the main goal was
+to provide an excelent support for the client's show case to ensure
+the project's growth and success. The next section (Section
+\ref{sec:working}) describes how the team organized itself to achieve
+this goal.
 
 \section{Developing a work system}
 \label{sec:working}
 
-Given the environment we were on, the customer was always pushing for
-new features as fast as possible considering only one specific use
+Given the project's situation, the customer was always pushing for new
+features as fast as possible considering only one specific use
 scenario. This meant that, for most features, there were several cases
-which we were asked not to handle. Regarding the source code, this
-meant a lot of conditionals, several spikes becoming permanent
-solutions and a fair amount of unhandled exceptions, errors or just
-regular behaviors.
+which the team was asked \textbf{not} to handle. Regarding the source
+code, this meant a lot of conditionals, several spikes becoming
+permanent solutions and a fair amount of unhandled exceptions, ignored
+errors or non functional regular behaviors.
 
-We knew since the beginning that our client would change his mind over
-time. After all, it was partly to better understand his idea and its
-aplicability that he wanted to build this prototype. So things were
-going to change and we would throw features away and keep code meant
-only for a quick spike. Therefore, we started investing a little on
-design, automated tests and refactoring since the beginning and we
-made it clear for our client that there would be some work done on
-features after he accepted them.
+The team knew since the beginning that the client would change his
+mind over time. After all, it was partly to better understand his idea
+and its aplicability that he wanted to build this prototype. So things
+were going to change and features would be developed to later be
+thrown away while code produced only for a quick spike was going to
+become part of the system. Therefore, the team started investing a
+little on design, automated tests and refactoring since the beginning
+and made it clear for the client that there would be some work done on
+features after he accepted them to polish the work.
 
-The first few month went quite smooth. The main features involved were
-to integrate wth a text format coming from competitors, provide a
-simple text marking feature and a visualization feature to manipulate
-and visualise the marks. For those features, it was quite simple to
-avoid gaps since there were not many  business rules
+The first few month went quite smooth. The main features developed
+were to integrate with a text format coming from competitor software,
+provide a simple text marking feature and a visualization feature to
+manipulate and visualise the marks. For those features, it was quite
+simple to avoid gaps since there were not many business rules
 involved. Problems started to appear once the script writting business
 rules started to show up.
 
-Our client's presentation script was evolving as the software did and
-we soon started to add conditionals to ignore cases he would not enter
-in. By October, the main features were ready but new features were
-still incipient and our client was not feeling confident to present
-the software to the investors. However, he started to make contact
-with a few people to schedule a meeting by the end of November 2008
-and December 2008. Those dates became our new deadline until which all
-efforts should be focused in making those incipient features available
-for the demonstration.
+The client's presentation script was evolving as the software did and
+the team soon started to add conditionals to ignore cases he would not
+enter in. By October, the main features were ready but new discovered
+features were still incipient and the client was not feeling confident
+to present the software to the investors. However, he started to make
+contact with a few people to schedule a meeting by the end of November
+2008 and December 2008. Those dates became our new deadline until
+which all efforts should be focused in making those incipient features
+available for the demonstration.
 
 A new feature pressure installed itself since the projects fate would
-be decided at the demonstration. The customer wanted the team to
-ignore corner cases, speed up delivery and ensure the demonstration
-would run smoothly. The excitment from the important presentation to
-other people let the development team highly motivated to deliver all
-features the client had asked for. Although unit testing and pair
-programming was a mandatory rule on the team, the general will to
-quickly deliver decreased the code quality.
+be decided at the demonstration and it was close! The customer wanted
+the team to ignore corner cases, speed up delivery and ensure the
+demonstration would run smoothly. The excitment from the important
+presentation to other people let the development team highly motivated
+to deliver all features the client had asked for. Although unit
+testing and pair programming was a mandatory rule on the team, the
+general will to quickly deliver the features decreased the code
+quality.
 
 \section{Changing the rules}
 \label{sec:changes}
 
-December 2008 arrived and no meeting was scheduled. Our client told us
-that the company he was going to contact had just been bought so any
-project presentation was useless until things settled down. Our so
-expected deadline was then pushed away for another 3 or 4 months at
-least. Along with this news came the information that our client had
-formed a dramaturgy experts group to help him understand the best way
-to build the software.
+December 2008 arrived and passed without any meeting. The company that
+the client was in contact with had just been acquired by another one
+so any project presentation was useless until things settled
+down. That news pushed the deadline away for another 3 or 4 months at
+least. Along with this news came the information that the client had
+formed a dramaturgy experts group to help him understand better how to
+structure the software.
 
-The pressure release from the last 2 months, this new data plus a
-known increase in code complexity and decrease in quality led the
-team to re-evaluate their working system.
+This new context relieved a 4 months pressure of upcoming deadline
+over a team which was beginning to feel the burden of unhandled
+technical debt. All members of the development team agreed that the
+code was getting complex and the quality was decreasing which was
+affecting productivity and speed. The software was now going to have a
+set of beta testers and it needed to perform decently to allow the
+users to suggest improvements in the work system.
+
+The general feeling was that the project was no longer aimed at a
+simple presentation to investors. It was softly switching to a more
+elaborate and end user oriented software. The current development
+approach would not be able to support this new use of the system. The
+change had to be clear to the client so that development efforts would
+be directed to address this new way of working.
+
+The warnings came surely from the dramaturgy study group. They started
+having troubles with several known and unknown corner cases,
+behaviours and just plain old bugs. The client started to notice that
+the users were having several troubles with the software and decided
+we needed to invest more in usability and user experience. To which
+the team replied that it would also mean less new features.
+
+At this point, the client started to understand the dilema that the
+developpers had felt so far. How to keep a good rhythm of new features
+and still cover most use cases of existing features? Another critical
+issue in the software was that, so far, most features aimed at
+visualization and insertion of meta data in the movie script but users
+were claiming for basic text editing features ignored so far.
+
+The team estimated that to have an editor with the basic features
+expected by the client would take at least three full iterations. This
+was completly unacceptable to the client since it would mean no new
+feature until the moment when he would possibly be able to show the
+software to investors.
 
 \section{Adapting to the new rules}
 \label{sec:adapting}
