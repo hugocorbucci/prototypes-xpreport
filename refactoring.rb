@@ -2,7 +2,7 @@
 require 'rubygems'
 require 'gnuplot'
 
-def plot nome_imagem, arquivo_de_dados, tamanho = "400, 400"
+def plot nome_imagem, arquivo_de_dados, tamanho = "800, 400"
   Gnuplot.open do |gp|
     Gnuplot::Plot.new( gp ) do |plot|
       plot.set "terminal png size #{tamanho}"

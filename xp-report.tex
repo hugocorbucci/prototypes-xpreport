@@ -6,6 +6,7 @@
 \documentclass[lnbip]{svmultln}
 %
 \usepackage{makeidx}  % allows for indexgeneration
+\usepackage{graphicx}
 % \makeindex          % be prepared for an author index
 %
 \newcommand{\mari}[1]{\footnote{MARI: #1}}
@@ -277,7 +278,46 @@ underlying infra-structure as a way to keep the feature producing
 speed while attending the users' requests.
 
 Meanwhile, the development team was concerned with the increasing
-complexity so they started to track some data from the source code to 
+complexity so they started to track some data from the source
+code. The first metrics was the amount of \texttt{FIXME},
+\texttt{TODO} and \texttt{XXX} marks in the code. As previously
+mentioned, the development team added those marks everywhere the felt
+a corner case or a behavior existed but was not handled. Each mark had
+a small comment associated and the kind of the mark determined the
+criticality of the problem. Figure \ref{fig:TODOs} shows the evolution
+of those marks during the project.
+
+\begin{figure}[hbt]
+  \centerline{
+    \includegraphics[width=140mm]{TODOs.png}
+  }
+  \caption{Evolution of FIXME, TODO and XXX marks in the source code}
+  \label{fig:TODOs}
+\end{figure}
+
+\begin{figure}[hbt]
+  \centerline{
+    \includegraphics[width=140mm]{LOCs.png}
+  }
+  \caption{Evolution of production }
+  \label{fig:LOCs}
+\end{figure}
+
+\begin{figure}[hbt]
+  \centerline{
+    \includegraphics[width=140mm]{InstanceOfs.png}
+  }
+  \caption{Evolution of instanceof in the code }
+  \label{fig:InstanceOfs}
+\end{figure}
+
+\begin{figure}[hbt]
+  \centerline{
+    \includegraphics[width=140mm]{refactoring.png}
+  }
+  \caption{Explicit refactoring time by iteration}
+  \label{fig:refactoring}
+\end{figure}
 
 \section{Adapting to the new rules}
 \label{sec:adapting}
