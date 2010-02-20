@@ -47,81 +47,119 @@ This paper shows you how to handle prototype projects.
 %
 \section{Introduction}
 
-Prototyping is one\mari{an} activity that most developer\mari{developers} have
-heard about. Fred Brooks mentioned it in The Mythical Man-Month
-\cite{Brooks1975} and most agile methods adopt various ideas related to
-prototyping. Nevertheless, it is also one of the most feared\mari{"feared"
-parece uma palavra estranha, meio extrema... é isso mesmo?} practices by those
-who had some experience with it.
+Prototyping is an activity that most developers have heard about. Fred
+Brooks mentioned it in The Mythical Man-Month \cite{Brooks1975} as one
+of the best ways to provide a quick view of a feature to the clients
+or users to help them make a choice. Dynamic System Development Method
+(DSDM) is heavily based on prototyping and other agile methods also
+adopt many ideas related to it. Nevertheless, it is also one of the
+most feared\mari{"feared" parece uma palavra estranha, meio
+  extrema... é isso mesmo?} practices by those who had some experience
+with it.
 
-Most of the times\mari{Usually, in an Agile context}, using software prototypes
-is traumatic because\mari{Talvez o ponto todo fique mais claro se vc inverter a
-ordem: começa só contando a historia, e no final conclui que isso é traumatico}
-successful prototypes look very much like full\mari{complete} features and
-customers usually\mari{tira esse usually?} want to integrate the prototypes to
-the working system and move on. However,\mari{The problem is that} prototypes
-are frequently created in a ``quick and dirty'' fashion and the result is not
-adequate to be incorporated in a full featured\mari{acho que deveria ser
-"full-featured"} system. It is, however,\mari{prefiro "However, it is"} quite
-hard to explain this fact to the stakeholders who usually do not want to spend
-any more money\mari{do not want to invest any more} in this ``already working''
-feature.
+Successful software prototypes look very much like complete features
+given a certain execution path. Therefore it is common that the
+customers get so happy with it that they want to integrate the
+prototypes to the working system and move on. The problem is that
+prototypes are frequently created in a ``quick and dirty'' fashion and
+the result is not adequate to be incorporated in a full-featured
+system. However, it is quite hard to explain this fact to the
+stakeholders who usually do not want to invest any more money in this
+``already working'' feature. The consequence is that they switch
+priorities and work efforts to other parts of the system and leave the
+rough prototype lost within the code base. Months or years later, the
+prototype becomes a part of the system but is filled with bugs,
+unhandled corner cases and, frequently, crappy code. Nobody remembers
+what it was supposed to do or whether it is really
+important. Maintainability gets deeply affected and developers have
+that natural and unpleasant I-told-you-so feeling which results in a
+traumatic feeling.
 
-\mari{parece que nao deveria quebrar paragrafo aqui, vc continua contando a
-mesma historinha} They, therefore, switch priorities and work efforts to other
-parts of the system and let\mari{leave} the rough prototype lost within the code
-base. Months or years later, the prototype becomes an importat\mari{important -
-é isso mesmo que quis dizer? pq logo ali embaixo vc diz que ninguem sabe se é
-mesmo importante} part of the system but is filled with bugs, unhandled corner
-cases and, frequently, crappy code. Nobody remembers what it was supposed to do
-or whether it is really important. Maintainability gets deeply affected and
-developers have that natural and unpleasant I-told-you-so feeling.
+Developers that have been through the pain of maintaing those dirty
+prototypes are not entusiastic to work with prototypes anymore. If
+they are forced to, they make it so that there will be absolutely no
+way to integrate the prototype to the existing system by either using
+a different platform, language or even creating prototypes in other
+medias. That inflexibility can reduce the capacity of responding to
+changes quickly and therefore harm the clients' interests.
 
-Developers that have been through the pain of maintaing those dirty prototypes
-hardly accept to work with prototypes anymore\mari{isso é mesmo verdade? me
-parece meio forçado. talvez algo mais como "eles não querem"}. If they are
-forced to, they make it so that there will be absolutely no way to integrate the
-prototype to the existing system by either using a different platform, language
-or even creating prototypes in other medias. That inflexibility can reduce the
-capacity of responding to changes quickly and therefore harm the clients'
-interests.
-
-This paper presents how a four colocated people team\mari{four-people collocated
-team} managed to start a prototyping project and evolve it naturally to a full
-featured\mari{full-featured} software. The organization of this work follows a
-chronological order as the project evolved softly from a series of prototyped
-features to a full featured software\mari{vc acabou de falar que evolui de
-prototipos pra full-featured, aí repete na frase seguinte. podia terminar essa
-segunda frase apos o "order" ou "evolved".}. Section \ref{sec:start} will
-present the project as the team received\mari{as the team first received it -
-received parece estranho, que tal "as it was first presented to the team" ou
-algo assim?} it. Section \ref{sec:working} presents the working system\mari{o
-que é working system? sistema de trabalho? acho que algo como "work process" é
-melhor} established by the team to create the software based on prototypes.
-After some time, the team felt that the customer was shifting to a full featured
-idea as described in Section \ref{sec:changes}. The following section (Section
+This paper presents how a four-people collocated team managed to start
+a prototyping project and evolve it naturally to a full-featured
+software. The organization of this work follows a chronological order
+as the project evolved. Section \ref{sec:start} will present the
+project as it was first presented to the development team. Section
+\ref{sec:working} presents the work process established by the team to
+create the software based on prototypes.  After some time, the team
+felt that the customer was shifting to a full featured idea as
+described in Section \ref{sec:changes}. The following section (Section
 \ref{sec:adapting}) shows how the team adapted to those changes to
-accomodate\mari{acommodate} both ideas. Finally Section \ref{sec:nowadays}
-presents the current status of the project and Section \ref{sec:conclusion}
-concludes with a summary of practices that were useful to pass through this
-experience without that much pain\mari{without much pain - eu tiraria o that}.
+acommodate both ideas. Finally Section \ref{sec:nowadays} presents the
+current status of the project and Section \ref{sec:conclusion}
+concludes with a summary of practices that were useful to pass through
+this experience without much pain.
 
 \section{Starting the project}
 \label{sec:start}
 
-Back in March 2008, Agilbits\mari{talvez seja melhor dizer "our company"? senão o cara fica se perguntando q q é a agilbits...} was hired to do some consulting with\mari{for} one of the biggest\mari{largest} movie producing companies in Brazil. The client had a fantastic\mari{great} idea for a software to write movie scripts and needed some help to evolve this idea. The company's job at the time was to scout the market, discover competitors and provide an estimation of the work needed to turn the client's idea into working software.\mari{Sugiro adicionar qual era a intencao do Paulo neste ponto. Algo como: His intention at that time was to build a working demo software as quickly as possible and use it to attract possible investors for a full program.}
+Back in March 2008, our company was hired to do some consulting for
+one of the largest movie producing companies in Brazil. The client had
+a great idea for a software to write movie scripts and needed some
+help to evolve this idea. The company's job at the time was to scout
+the market, discover competitors and provide an estimation of the work
+needed to turn the client's idea into working software.\mari{Sugiro
+  adicionar qual era a intencao do Paulo neste ponto. Algo como: His
+  intention at that time was to build a working demo software as
+  quickly as possible and use it to attract possible investors for a
+  full program.}
 
-For such work, one consultant was assigned to understand what were the client's needs and desires and two developers were asked to analyse\mari{analyze} the existing software\mari{the existing programs? desse jeito, nao sei se fica claro que sao mais de 1} and evaluate the possible development paths. After about 3 weeks of consulting and studies, the team handed a deck full of story cards estimated with the use of two platforms\mari{nao ficou claro. alternativa: story cards with two estimates each, based on the use of two possible platforms}. The first one\mari{platform} was an existing open source software with several features and a copyleft license. The second one was an Eclipse\mari{Eclipse ou eclipse? cada hora vc usa um...precisa escolher e revisar.} Rich Client Application\mari{developed from scratch} using Eclipse's open source framework\mari{fim de frase, tira o resto} as the basis for a new software.
+For such work, one consultant was assigned to understand what were the
+client's needs and desires and two developers were asked to analyze
+the existing script writing programs and evaluate the possible
+development paths. After about 3 weeks of consulting and studies, the
+team handed a deck full of story cards with two estimates each, based
+on the use of two possible platforms. The first platform was an
+existing open source software with several features and a copyleft
+license. The second one was an Eclipse Rich Client Application
+developed from scratch using Eclipse's open source framework.
 
-That first estimation\mari{achei que o first deixou a frase confusa, pois vc acabou de enumerar as plataformas. sugiro trocar por initial. e talvez this ao inves de that} suggested that a four people team with a half-time dedication would be able to build a partially working prototype\mari{partially working prototype me parece uma expressao estranha. pq nao só "working prototype"?} of each feature described in about nine months of development using the existing open source software and about one year using eclipse's platform. The open source solution had the advantage to provide full functionality of several other features. For a full featured system\mari{full-featured... ou complete?}, the estimation was over\mari{was well over hehehe} 2 years of work on the Eclipse version and about a year and a half for the open source one.
+This initial estimation suggested that a four people team with a
+half-time dedication would be able to build a working prototype of
+each feature described in about nine months of development using the
+existing open source software and about one year using Eclipse's
+platform. The open source solution had the advantage to provide full
+functionality of several other features. For a complete system, the
+estimation was well over 2 years of work on the Eclipse version and
+about a year and a half for the open source one.
 
-After some discussion, the client opted for the eclipse based solution because his business plan was to keep the solution closed source and sell the project to external investors\mari{eu trocaria todo esse because por um "due to the license restriction of the open source one"}. He also chose to have just a prototype version\mari{to develop only a prototype of the idea ?} since 2 years seemed like a too heavy investment for him alone\mari{meio que ele ja tinha decidido isso antes? ou nao?}.
+After some discussion, the client opted for the Eclipse based solution
+due to the license restriction of the open source one which conflicted
+with his business plan. He also chose to develop only a prototype of
+the idea since 2 years seemed like a too heavy investment for him
+alone\mari{meio que ele ja tinha decidido isso antes? ou nao?}.
 
-Such choice terminated\mari{frase fica estranha, terminate parece ruim, e alem disso qquer que fosse a escolha a consultoria terminaria. era a transicao natural. eu colocaria algo como "After this investigation phase..."} the consulting contract and created a new one with a majority of development time and a few hours of consulting\mari{acho que os detalhes de contrato q vc coloca nesse paragrafo sao meio desnecessarios, nao sei...}. Originally, this new contract mentioned a 4 developers team working on an open scope providing 160 hours of work each month. It specifically stated that the developers would work on pairs all the time and that the developed system should have automated tests to the production code.
+After the investigation pahse the consulting contract and created a
+new one with a majority of development time and a few hours of
+consulting\mari{acho que os detalhes de contrato q vc coloca nesse
+  paragrafo sao meio desnecessarios, nao sei...}. Originally, this new
+contract mentioned a 4 developers team working on an open scope
+providing 160 hours of work each month. It specifically stated that
+the developers would work on pairs all the time and that the developed
+system should have automated tests to the production code.
 
-The project goal was to create a software prototype with most faked (or simplified)\mari{pq o parentesis? deixa só "fake or simplified"} features and a few working ones. The client would use this prototype to present his ideas to some investors in Hollywood\mari{present his idea to investors - tira o "some" e o "in Hollywood"...} by October 2008. This meeting would either boost the project's development to a full featured system if the investors liked the idea or end its development in case they rejected the proposition\mari{rejected it}.
+The project goal was to create a software prototype with most faked or
+simplified features and a few working ones. The client would use this
+prototype to present his ideas toinvestors by October 2008. This
+meeting would either boost the project's development to a full
+featured system if the investors liked the idea or end its development
+in case they rejected it.
 
-That was the team's vision of the project when the development begun. A short seven months project whose fate would be decided by its capacity to impress Hollywood investors\mari{impress investors}. Therefore, the main goal was to provide an excelent\mari{excellent} support for the client's show case\mari{demonstration} to ensure the project's growth and success. The next section (Section \ref{sec:working}) describes how the team organized itself to achieve this goal.
+That was the team's vision of the project when the development
+begun. A short seven months project whose fate would be decided by its
+capacity to impress investors. Therefore, the main goal was to provide
+an excellent support for the client's demonstration to ensure the
+project's growth and success. The next section (Section
+\ref{sec:working}) describes how the team organized itself to achieve
+this goal.
 
 \section{Developing a work system}
 \label{sec:working}
@@ -172,6 +210,12 @@ testing and pair programming was a mandatory rule on the team, the
 general will to quickly deliver the features decreased the code
 quality.
 
+Things were getting quite unpleasant from a development perspective
+but since the client satisfaction was still high, there was little
+that could be done. However, external interference was about to change
+a bit the situation. Section \ref{sec:changes} will explain how the
+project got affected and what new direction those changes pointed to.
+
 \section{Changing the rules}
 \label{sec:changes}
 
@@ -198,8 +242,8 @@ approach would not be able to support this new use of the system. The
 change had to be clear to the client so that development efforts would
 be directed to address this new way of working.
 
-The warnings came surely from the dramaturgy study group. They started
-having troubles with several known and unknown corner cases,
+The warnings came quickly from the dramaturgy study group. They
+started having troubles with several known and unknown corner cases,
 behaviours and just plain old bugs. The client started to notice that
 the users were having several troubles with the software and decided
 we needed to invest more in usability and user experience. To which
@@ -221,45 +265,84 @@ changes in the business plan of the project. He decided he wanted to
 have another team working on an editor feature that would allow all
 the features he wanted.
 
-The team did some research and ended up selecting a development team
-in Russia with experience working on the Eclipse StyledText component
-which is responsible for rendering text within Eclipse editors.
+The team did some research and ended up discovering an open source
+Eclipse Rich Client WYSIWYG (What You See Is What You Get) HTML
+editor\footnote{\url{http://onpositive.com/richtext/} - Last accessed on
+20/02/2010}. The editor relied on a reimplementation of Eclipse's
+StyledText component which is responsible for rendering text within
+Eclipse editors. This kind of knowledge was close enough from the one
+needed to implement the features our client wanted on our
+application. So the client outsourced the development of this
+underlying infra-structure as a way to keep the feature producing
+speed while attending the users' requests.
+
+Meanwhile, the development team was concerned with the increasing
+complexity so they started to track some data from the source code to 
 
 \section{Adapting to the new rules}
 \label{sec:adapting}
 
+Investing in reducing instanceof uses, TODOs and FIXMEs as well as
+increasing line of tests. Noticing most issues are coming from
+UI. SWTBot?
+
+Effort dedication to integrate the new outsourced component developed.
+
+Always handle (even if it means throwing an error to the log) corners
+cases or unexpected input/paths. Always refactor before completing any
+task. Tolerance 0 to bugs. Bug means highest priority.
+
+Introducing another developer in the team.
+
 \section{Current status}
 \label{sec:nowadays}
 
+Test coverage
+
+Testing in other platforms
+
+Merciless decoupling
+
 \section{Conclusion}
 \label{sec:conclusion}
+
+Team's effort to keep tests level (ignoring known issues not solved).
+
+Refactor tests.
+
+Refactor prototypes (their code must be good).
+
+
 
 %
 % ---- Bibliography ----
 %
 \begin{thebibliography}{5}
 
-\bibitem{smit:wat} Smith, T.F., Waterman, M.S.: Identification of Common Molecular
-Subsequences. J. Mol. Biol. 147, 195--197 (1981)
+\bibitem{Brooks1975} Brooks Jr., F.P.: The Mythical Man Month: Essays
+  on Software Engineering. Addison-Wesley (1975)
 
-\bibitem{mes} May, P., Ehrlich, H.C., Steinke, T.: ZIB Structure Prediction Pipeline:
-Composing a Complex Biological Workflow through Web Services. In: Nagel,
-W.E., Walter, W.V., Lehner, W. (eds.) Euro-Par 2006. LNCS, vol. 4128,
-pp. 1148--1158. Springer, Heidelberg (2006)
+\bibitem{mes} May, P., Ehrlich, H.C., Steinke, T.: ZIB Structure
+  Prediction Pipeline: Composing a Complex Biological Workflow through
+  Web Services. In: Nagel, W.E., Walter, W.V., Lehner, W. (eds.)
+  Euro-Par 2006. LNCS, vol. 4128, pp. 1148--1158. Springer, Heidelberg
+  (2006)
 
-\bibitem{fos:kes} Foster, I., Kesselman, C.: The Grid: Blueprint for a New Computing
-Infrastructure. Morgan Kaufmann, San Francisco (1999)
+\bibitem{fos:kes} Foster, I., Kesselman, C.: The Grid: Blueprint for a
+  New Computing Infrastructure. Morgan Kaufmann, San Francisco (1999)
 
-\bibitem{cff} Czajkowski, K., Fitzgerald, S., Foster, I., Kesselman, C.: Grid
-Information Services for Distributed Resource Sharing. In: 10th IEEE
-International Symposium on High Performance Distributed Computing, pp.
-181--184. IEEE Press, New York (2001)
+\bibitem{cff} Czajkowski, K., Fitzgerald, S., Foster, I., Kesselman,
+  C.: Grid Information Services for Distributed Resource Sharing. In:
+  10th IEEE International Symposium on High Performance Distributed
+  Computing, pp.  181--184. IEEE Press, New York (2001)
 
-\bibitem{fos:kes:2} Foster, I., Kesselman, C., Nick, J., Tuecke, S.: The Physiology of the
-Grid: an Open Grid Services Architecture for Distributed Systems
-Integration. Technical report, Global Grid Forum (2002)
+\bibitem{fos:kes:2} Foster, I., Kesselman, C., Nick, J., Tuecke, S.:
+  The Physiology of the Grid: an Open Grid Services Architecture for
+  Distributed Systems Integration. Technical report, Global Grid Forum
+  (2002)
 
-\bibitem{url} National Center for Biotechnology Information, http://www.ncbi.nlm.nih.gov
+\bibitem{url} National Center for Biotechnology Information,
+  http://www.ncbi.nlm.nih.gov
 
 \end{thebibliography}
 %
