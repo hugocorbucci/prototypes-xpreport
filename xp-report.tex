@@ -52,11 +52,9 @@ Prototyping is an activity that most developers have heard about. Fred
 Brooks mentioned it in The Mythical Man-Month \cite{Brooks1975} as one
 of the best ways to provide a quick view of a feature to the clients
 or users to help them make a choice. Dynamic System Development Method
-(DSDM) is heavily based on prototyping and other agile methods also
-adopt many ideas related to it. Nevertheless, it is also one of the
-most feared\mari{"feared" parece uma palavra estranha, meio
-  extrema... é isso mesmo?} practices by those who had some experience
-with it.
+(DSDM)\cite{DSDM} is heavily based on prototyping and other agile
+methods also adopt many ideas related to it. However, those who have
+had some experience with this practice feel uncomfortable with it.
 
 Successful software prototypes look very much like complete features
 given a certain execution path. Therefore it is common that the
@@ -64,24 +62,23 @@ customers get so happy with it that they want to integrate the
 prototypes to the working system and move on. The problem is that
 prototypes are frequently created in a ``quick and dirty'' fashion and
 the result is not adequate to be incorporated in a full-featured
-system. However, it is quite hard to explain this fact to the
-stakeholders who usually do not want to invest any more money in this
-``already working'' feature. The consequence is that they switch
-priorities and work efforts to other parts of the system and leave the
-rough prototype lost within the code base. Months or years later, the
+system. Yet it is quite hard to explain this fact to the stakeholders
+who usually do not want to invest any more money in this ``already
+working'' feature. The consequence is that they switch priorities and
+work efforts to other parts of the system and leave the rough
+prototype lost within the code base. Months or years later, the
 prototype becomes a part of the system but is filled with bugs,
 unhandled corner cases and, frequently, crappy code. Nobody remembers
 what it was supposed to do or whether it is really
 important. Maintainability gets deeply affected and developers have
-that natural and unpleasant I-told-you-so feeling which results in a
-traumatic feeling.
+that natural and unpleasant I-told-you-so feeling. %TODO trauma?
 
 Developers that have been through the pain of maintaing those dirty
 prototypes are not entusiastic to work with prototypes anymore. If
-they are forced to, they make it so that there will be absolutely no
-way to integrate the prototype to the existing system by either using
-a different platform, language or even creating prototypes in other
-medias. That inflexibility can reduce the capacity of responding to
+they have to, they make it so that there will be absolutely no way to
+integrate the prototype to the existing system by either using a
+different platform, language or even creating prototypes in other
+medias. That inflexibility can reduce the ability of responding to
 changes quickly and therefore harm the clients' interests.
 
 This paper presents how a four-people collocated team managed to start
@@ -104,14 +101,13 @@ this experience without much pain.
 
 Back in March 2008, our company was hired to do some consulting for
 one of the largest movie producing companies in Brazil. The client had
-a great idea for a software to write movie scripts and needed some
-help to evolve this idea. The company's job at the time was to scout
-the market, discover competitors and provide an estimation of the work
-needed to turn the client's idea into working software.\mari{Sugiro
-  adicionar qual era a intencao do Paulo neste ponto. Algo como: His
-  intention at that time was to build a working demo software as
-  quickly as possible and use it to attract possible investors for a
-  full program.}
+a great idea for a software to write movie scripts but had absolutely
+no knowledge about software development.  He wanted to mature the idea
+and understand how much investment it would take to turn it into
+working software in order to establish his business plan. The
+company's job at the time was to scout the market, discover
+competitors and provide an estimation of the work needed to develop
+the client's idea.
 
 For such work, one consultant was assigned to understand what were the
 client's needs and desires and two developers were asked to analyze
@@ -136,16 +132,14 @@ After some discussion, the client opted for the Eclipse based solution
 due to the license restriction of the open source one which conflicted
 with his business plan. He also chose to develop only a prototype of
 the idea since 2 years seemed like a too heavy investment for him
-alone\mari{meio que ele ja tinha decidido isso antes? ou nao?}.
+alone.
 
-After the investigation pahse the consulting contract and created a
-new one with a majority of development time and a few hours of
-consulting\mari{acho que os detalhes de contrato q vc coloca nesse
-  paragrafo sao meio desnecessarios, nao sei...}. Originally, this new
-contract mentioned a 4 developers team working on an open scope
-providing 160 hours of work each month. It specifically stated that
-the developers would work on pairs all the time and that the developed
-system should have automated tests to the production code.
+After the investigation phase, the consulting contract ended and a new
+one with a majority of development time was established. Originally,
+this new contract mentioned a 4 developers team working on an open
+scope providing 160 hours of work each month. It specifically stated
+that the developers would work on pairs all the time and that the
+developed system should have automated tests to the production code.
 
 The project goal was to create a software prototype with most faked or
 simplified features and a few working ones. The client would use this
