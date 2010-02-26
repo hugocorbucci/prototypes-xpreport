@@ -156,19 +156,86 @@ project's growth and success. The next section (Section
 \ref{sec:working}) describes how the team organized itself to achieve
 this goal.
 
-\section{Developing a work process}\mari{Sugestoes pro nome da secao: Working with prototypes,Developing prototypes,Prototyping phase - vc nem fala muito do nosso work process}
-\label{sec:working}
-Given the project's situation\mari{acho que situation nao eh a palavra aqui. que tal goal? objective? purpose?}, the customer was always pushing for new features as fast as possible considering only one specific usage scenario. This meant that, for most features, there were several cases which the team was asked \textbf{not} to handle. Regarding the source code, this meant a lot of conditionals\mari{nao sei se tinha a lot of conditionals... acho que estava mais pra assumir que so tinha um caso possivel, a gente nao verificava se estava no caso...}, several spikes becoming permanent solutions and a fair amount of unhandled exceptions, ignored errors or non functional regular behaviors\mari{nao entendi o que vc quer dizer por "non functional regular behaviors". a frase parece nao fazer nenhum sentido...}.
+\section{Developing a work process}\mari{Sugestoes pro nome da secao:
+  Working with prototypes,Developing prototypes,Prototyping phase - vc
+  nem fala muito do nosso work process}
+\label{sec:working}
 
-The team knew since the beginning that the client would change his mind over time. After all, it was partly to better understand his idea and its applicability that he wanted to build this prototype. So things\mari{things parece meio generico. o que mudaria? requirements? priorities? features?} were going to change and features would be developed to later be thrown away while code produced only for a quick spike was going to become part of the system. Therefore, since the beginning the team invested a little on design, automated tests and refactoring and made it clear for the client that there would be some work done on features after he accepted them in order to polish the work.\mari{Uma alternativa, pq nao gosto muito desse little: Therefore, since the beginning the team invested on design, automated tests and refactoring, even if just enough to keep the system flexible to receive the next changes. The team also made it clear for the client that there would be some work done on features after he accepted them in order to polish the work.}
+Given the project's situation\mari{acho que situation nao eh a palavra
+  aqui. que tal goal? objective? purpose?}, the customer was always
+pushing for new features as fast as possible considering only one
+specific usage scenario. This meant that, for most features, there
+were several cases which the team was asked \textbf{not} to
+handle. Regarding the source code, this meant a lot of
+conditionals\mari{nao sei se tinha a lot of conditionals... acho que
+  estava mais pra assumir que so tinha um caso possivel, a gente nao
+  verificava se estava no caso...}, several spikes becoming permanent
+solutions and a fair amount of unhandled exceptions, ignored errors or
+non functional regular behaviors\mari{nao entendi o que vc quer dizer
+  por "non functional regular behaviors". a frase parece nao fazer
+  nenhum sentido...}.
 
-The first few iterations went quite smooth. The main features developed involved importing a script in a text-only format, providing a simple text marking feature and a feature to manipulate and visualize these marks. For those features, it was quite simple to avoid gaps\mari{o que eh gaps? nao entendi a frase} since there were not many business rules involved. Problems started to appear once the script writing business rules started to show up\mari{que problems? essa frase parece meio solta... sera que eh pq eu nao entendi a frase anterior?}.
+The team knew since the beginning that the client would change his
+mind over time. After all, it was partly to better understand his idea
+and its applicability that he wanted to build this prototype. So
+things\mari{things parece meio generico. o que mudaria? requirements?
+  priorities? features?} were going to change and features would be
+developed to later be thrown away while code produced only for a quick
+spike was going to become part of the system. Therefore, since the
+beginning the team invested a little on design, automated tests and
+refactoring and made it clear for the client that there would be some
+work done on features after he accepted them in order to polish the
+work.\mari{Uma alternativa, pq nao gosto muito desse little:
+  Therefore, since the beginning the team invested on design,
+  automated tests and refactoring, even if just enough to keep the
+  system flexible to receive the next changes. The team also made it
+  clear for the client that there would be some work done on features
+  after he accepted them in order to polish the work.}
 
-The client's demonstration\mari{posso colocar so "demo script"?} script was evolving as the software did and the team soon started to add conditionals to ignore cases he would not enter in. By October 2008, the main features\mari{to sentindo falta de um paragrafo "classificando" as features que tinhamos no inicio, estilo o spreadsheet que o paulo mandou pra gente laaaa no inicio do projeto (ver email "Fwd: Story Touch projeto" do Ale) - vamos conversar} were ready\mari{ready for the demonstration, but not "done-done", they were prototyped.} but new discovered features were still incipient\mari{quais features sao essas? na verdade a gente estava comecando a entrar no editor, so que isso nao era novo, ja tinha desde o comeco} and the client was not feeling confident to present the software to the investors. However, he started to make contact with a few people to schedule a meeting by the end of November 2008 or start of December 2008. Those dates became our new deadline until which all efforts should be focused on making those incipient features available for the demonstration.
+The first few iterations went quite smooth. The main features
+developed involved importing a script in a text-only format, providing
+a simple text marking feature and a feature to manipulate and
+visualize these marks. For those features, it was quite simple to
+avoid gaps\mari{o que eh gaps? nao entendi a frase} since there were
+not many business rules involved. Problems started to appear once the
+script writing business rules started to show up\mari{que problems?
+  essa frase parece meio solta... sera que eh pq eu nao entendi a
+  frase anterior?}.
 
-At this point, the pressure for new features increased since the project's fate would be decided at the demonstration and it was close! The customer wanted the team to ignore corner cases, speed up delivery and ensure the demonstration would run smoothly. The excitement from the important presentation to other people (only our one client and us had seen the software so far) was a strong motivation for the development team to deliver all features the client had asked for. Yet, despite unit testing and pair programming being mandatory rules on the team, the general will to quickly deliver the features decreased the code quality.
+The client's demonstration\mari{posso colocar so "demo script"?}
+script was evolving as the software did and the team soon started to
+add conditionals to ignore cases he would not enter in. By October
+2008, the main features\mari{to sentindo falta de um paragrafo
+  "classificando" as features que tinhamos no inicio, estilo o
+  spreadsheet que o paulo mandou pra gente laaaa no inicio do projeto
+  (ver email "Fwd: Story Touch projeto" do Ale) - vamos conversar}
+were ready\mari{ready for the demonstration, but not "done-done", they
+  were prototyped.} but new discovered features were still
+incipient\mari{quais features sao essas? na verdade a gente estava
+  comecando a entrar no editor, so que isso nao era novo, ja tinha
+  desde o comeco} and the client was not feeling confident to present
+the software to the investors. However, he started to make contact
+with a few people to schedule a meeting by the end of November 2008 or
+start of December 2008. Those dates became our new deadline until
+which all efforts should be focused on making those incipient features
+available for the demonstration.
 
-Things were getting quite unpleasant from a development perspective but since the client satisfaction was still high, there was little that could be done. However, external interference was about to change a bit the situation. Section \ref{sec:changes} will explain how the project got affected and what new direction those changes pointed to.
+At this point, the pressure for new features increased since the
+project's fate would be decided at the demonstration and it was close!
+The customer wanted the team to ignore corner cases, speed up delivery
+and ensure the demonstration would run smoothly. The excitement from
+the important presentation to other people (only our one client and us
+had seen the software so far) was a strong motivation for the
+development team to deliver all features the client had asked
+for. Yet, despite unit testing and pair programming being mandatory
+rules on the team, the general will to quickly deliver the features
+decreased the code quality.
+
+Things were getting quite unpleasant from a development perspective
+but since the client satisfaction was still high, there was little
+that could be done. However, external interference was about to change
+a bit the situation. Section \ref{sec:changes} will explain how the
+project got affected and what new direction those changes pointed to.
 
 \section{Changing the rules}
 \label{sec:changes}
