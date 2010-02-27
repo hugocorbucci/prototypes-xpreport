@@ -469,11 +469,35 @@ certainty that other choices were not as good as the one he had made.
 \section{Conclusion}
 \label{sec:conclusion}
 
-Team's effort to keep tests level (ignoring known issues not solved).
+Successful software prototypes are hardly ever completly thrown
+away. This fact comes from the very nature of software and the ability
+to easily and quickly merge pieces of code together to produce a
+working system. Agility relies on this fact to allow for incremental
+evolution of the system and, therefore, supports that drafts should
+grow to complete features.
 
-Refactor tests.
+By embracing that, if your prototypes are successful, they will be
+incorporated into the software, you can prepare to maintain that piece
+of code. It does not mean that prototypes should be devolved exactly
+as well known complete features. Prototyping should be allowed to
+explore different solutions and should get investment as they survive
+the selection process in a similar fashion to the set-based lean
+approach~\cite{Poppendieck2009}.
 
-Refactor prototypes (their code must be good).
+Refactoring, testing and decoupling are essential to allow code
+evolution and should grow as the prototype starts to transform into a
+working feature. Unhandled exceptions, cases or behaviours should be
+strongly documented with tests or some other system that allow for
+quick listing and search.
+
+Although prototypes are not first class production code and much of
+their value come from this lower class status, they are likely to
+climbing the ladder up to working essential features of the system. It
+is very important to track this path and provide the necessary support
+to maintain this work. But do not fear to throw away anything either,
+the value provided by prototypes resides deeply in the knowledge they
+brought to the customers which means the code is much less valuable
+then we give it credit for.
 
 %
 % ---- Bibliography ----
@@ -495,6 +519,10 @@ Refactor prototypes (their code must be good).
   % http://74.125.155.132/scholar?q=cache:ezGZKBBRVhwJ:scholar.google.com/+software+prototype&hl=pt-BR&as_sdt=2000
 
   % http://www.imamu.edu.sa/Scientific_selections/abstracts/Documents/A%20Systematic%20Look%20At%20Prototyping.pdf
+
+\bibitem{Poppendieck2009} Poppendieck, M. and Poppendieck, T.:
+  Implementing Lean Software Devleopment: From Concept to
+  Cash. Addison-Wesley (2009)
 
 \end{thebibliography}
 %
