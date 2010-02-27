@@ -44,15 +44,15 @@
   Prototypes are a well known, widely accepted development practice
   but, if not carefully evolved, they can become a little nightmare to
   maintain. This paper presents the experience of a four people agile
-  team who successfully grew a new prototyped system to a
-  full-featured software system without any clear transition in the
+  team who successfully grew a prototyped system to a
+  full-featured application without any clear transition in the
   project. The paper describes how the project started with a very
   simple prototyping goal, evolved through iterations and spikes to a
   partly working system and transformed, in the end, in a complete
   application widely tested and refactored.
 
   % please supply keywords within your abstract TODO Keywords
-  \keywords {prototype, agile methods, refactoring,  }
+  \keywords {prototype, agile methods, refactoring}
 \end{abstract}
 %
 \section{Introduction}
@@ -62,7 +62,7 @@ Brooks mentioned it in The Mythical Man-Month~\cite{Brooks1975} as one
 of the best ways to provide a quick view of a feature to the clients
 or users to help them make a choice. Dynamic System Development Method
 (DSDM)~\cite{DSDM} is heavily based on prototyping and other agile
-methods also adopt many ideas related to this concept like
+methods also adopt many ideas related to this concept, like
 spikes~\cite{XP} in the Extreme Programming exploration
 phase.
 
@@ -101,9 +101,9 @@ process established by the team to create the software based on
 prototypes. After some time, the team felt that the customer needed a
 full featured application, we describe this change in Section
 \ref{sec:changes}. The following section (Section \ref{sec:adapting})
-shows how the team adapted to change to evolve the prototype to a
-production ready application. Finally Section \ref{sec:nowadays}
-presents the current status of the project. Section
+shows how the team adapted to evolve the prototype to a
+production ready application. Finally, Section \ref{sec:nowadays}
+presents the current status of the project and Section
 \ref{sec:conclusion} concludes with a summary of practices that were
 useful to go through this experience without much pain.
 
@@ -127,7 +127,8 @@ development paths. After about 3 weeks of consulting and studies, the
 team handed a deck full of story cards with two estimates each, based
 on the use of two possible platforms. The first platform was an
 existing open source software with several features and a copy-left
-license; the second one was an Eclipse Rich Client Application
+license; the second one was an Eclipse Rich Client
+Application\footnote{http://www.eclipse.org/rcp -- Last accessed on 27/02/2010}
 developed from scratch using Eclipse's open source framework.
 
 This initial estimation suggested that a four people team dedicating 4
@@ -148,7 +149,7 @@ alone.
 After the exploration phase, the consulting contract ended and a new
 negotiable scope contract~\cite{XP}
 with emphasis on development effort was established. This new contract
-established a team of 4 developers working with open scope that would
+established a team of 4 developers working with an open scope that would
 be negotiated monthly, providing 160 hours of work each month. It
 specifically stated that the developers would work on pairs all the
 time and that the developed system should have automated tests to the
@@ -178,7 +179,7 @@ would use this prototype to present his ideas to investors by October
 full featured system if the investors liked the idea or end its
 development in case they rejected it.
 
-That was the team's vision of the project when the development
+That was the team's vision of the project when development
 begun. A short seven months project whose fate would be decided by its
 capacity to impress investors. Therefore, the main goal was to provide
 support for the client's demonstration to ensure the project's growth
@@ -192,7 +193,7 @@ Given the project's objective, the customer always prioritized new
 features considering only one specific usage scenario. This meant
 that, for most features, there were several cases which the team was
 asked \textbf{not} to handle. Regarding the source code, it meant that
-no verification or validation was written and the prototype would
+no verification or validation was written and the prototype would likely
 crash if the user did not behave as expected. We also incorporated
 several spikes as permanent solutions and did not handle a fair amount
 of exceptions, ignoring errors.
@@ -205,12 +206,12 @@ code produced only for a quick spike was going to become part of the
 system. Therefore, since the beginning the team invested on design,
 automated tests and refactoring, just enough to keep the system
 flexible to receive the next changes. The team also made it clear for
-the client that he would need some work done on features after he
+the client that some work would need to be done on features after he
 accepted them in order to polish the work.
 
 The first few iterations went quite smooth, developing features from
 the first phase which involved importing a script in a text-only
-format, providing a simple way to mark text with meta-data and a way
+format marked with some meta-data and providing a simple way
 to manipulate and visualize this data. For these first features, it
 was easy to avoid inconsistencies since there were not many business
 rules involved.
@@ -227,12 +228,13 @@ initially included only in the second group of features, but he wanted
 to see how the text editor would integrate to allow viewing and
 editing of the meta-data he was creating. Therefore, he prioritized
 the inclusion of an incipient text editor in the prototype and started
-to detail stories related to this editor. As a result of this
-discovery, the client did not feel completely confident to present the
-software to the investors; even so, he started to make contact with a
-few people to schedule a meeting to December 2008. That date became
-our new deadline until which all efforts should be focused on making a
-prototyped text editor available for the demonstration.
+to detail stories related to this editor.
+
+As a result of this discovery, the client did not feel completely confident to
+present the software to the investors; even so, he started to make contact with
+a few people to schedule a meeting to December 2008. That date became our new
+deadline until which all efforts should be focused on making a prototyped text
+editor available for the demonstration.
 
 At this point, the pressure for polishing the new features increased
 since the project's fate would be decided at the demonstration and it
@@ -243,13 +245,9 @@ one client and us had seen the software so far) was a strong
 motivation for the development team to deliver all features the client
 had asked for. Yet, despite unit testing and pair programming being
 mandatory rules on the team, the general will to quickly deliver the
-features decreased the code quality considerably.
-
-From a development perspective, code quality was decreasing but since
-the client's satisfaction was still high, there was little that could
-be done.  However, external interference was about to change a bit the
-situation. Section \ref{sec:changes} will explain how the project got
-affected and what new direction those changes pointed to.
+features decreased the code quality considerably. However, external interference
+was about to change a bit the situation. Section \ref{sec:changes} will explain
+how the project got affected and what new direction those changes pointed to.
 
 \section{Changing the rules}
 \label{sec:changes}
@@ -259,7 +257,7 @@ in contact with had just been acquired by another one so any project
 presentation was useless until things settled down. This relieved the team of
 the pressure of the upcoming deadline and we finally acknowledged the burden of
 unhandled technical debt. All members of the development team agreed that the
-code was getting complex and the quality was decreasing which was affecting
+code was getting complex and the quality was decreasing, which had a negative effect on
 productivity and speed. This combined nicely with the client's request for a
 more complete text editor, with less mock-ups and simplifications. The first
 iteration of 2009 was dedicated entirely to refactoring the prototyped editor we
@@ -287,10 +285,10 @@ while and he wanted to explore them with the investors' meeting still in mind.
 We then decided to investigate other possible solutions to the text editor
 instead of just developing from scratch. After some research we discovered an
 open source Eclipse Rich Client WYSIWYG (What You See Is What You Get) HTML
-editor\footnote{\url{http://onpositive.com/richtext/} - Last accessed on
+editor\footnote{\url{http://onpositive.com/richtext/} -- Last accessed on
 20/02/2010}. The editor relies on a reimplementation of Eclipse's
 \texttt{StyledText} component which is responsible for rendering text within
-Eclipse editors. This component was close enough from the one we needed to
+Eclipse editors. This project was close enough from the one we needed to
 implement, having some of the functionality our client wanted on our
 application, and was mostly maintained by one Russian company. So, we suggested
 the possibility of outsourcing the development of the underlying text editor
@@ -305,7 +303,9 @@ of beta testers and it needed to perform decently to allow the users to suggest
 improvements for it. However, the current development approach would not be able
 to support this new use of the system. The change had to be clear to the client
 so that development efforts would be directed to address this new way of
-working. The evidence of the software's deficiency came quickly from the
+working.
+
+The evidence of the software's deficiency came quickly from the
 dramaturgy study group. They started having trouble with several known and
 unknown corner cases, unexpected behaviors and just plain old bugs. The client
 recognized this problem and, despite the fact that it would mean new features
