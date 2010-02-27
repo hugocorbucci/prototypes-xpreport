@@ -30,7 +30,7 @@
 %
 %%%% list of authors for the TOC (use if author list has to be
 %%%% modified)
-\tocauthor{Hugo Corbucci and Mariana V. Bravo and Alexandre Freire}
+\tocauthor{Hugo Corbucci and Mariana V. Bravo and Alexandre Freire da Silva}
 %
 \institute{Agilbits, Sao Paulo, Brazil,\\
   \email{{hugo,marivb,freire}@agilbits.com.br}}
@@ -49,7 +49,7 @@
   project. The paper describes how the project started with a very
   simple prototyping goal, evolved through iterations and spikes to a
   partly working system and transformed, in the end, in a complete
-  system widely tested and refactored.
+  application widely tested and refactored.
 
   % please supply keywords within your abstract TODO Keywords
   \keywords {prototype, agile methods, refactoring,  }
@@ -64,9 +64,7 @@ or users to help them make a choice. Dynamic System Development Method
 (DSDM)~\cite{DSDM} is heavily based on prototyping and other agile
 methods also adopt many ideas related to this concept like
 spikes~\cite{XP} in the Extreme Programming exploration
-phase. However, those who have had some experience with this practice
-feel uncomfortable with it\ale{quem disse? esse tipo de afirmação é
-  sempre bom ter uma citação, já apanhei bastante sobre isso.}.
+phase.
 
 Successful software prototypes look very much like complete features
 given a certain execution path. Therefore it is common that the
@@ -148,7 +146,7 @@ the idea since 2 years seemed like a too heavy investment for him
 alone.
 
 After the exploration phase, the consulting contract ended and a new
-negotiable scope contract\ale{tem citação pra esse tipo de contrato?}
+negotiable scope contract~\cite{XP}
 with emphasis on development effort was established. This new contract
 established a team of 4 developers working with open scope that would
 be negotiated monthly, providing 160 hours of work each month. It
@@ -381,15 +379,15 @@ were related to the way data was shown to the user. However, the team
 had a feeling that the effort to test the controller and model would
 have produced more test than code.
 
-By this time, the customer started to mention again the presentation
-to the investors. It had been quite some time in the project now and
+By this time, the customer started to mention the presentation
+to the investors again. It had been quite some time in the project now and
 he was feeling he had spent enough money and needed some external
 investment. Therefore the old investor meeting pressure installed
 itself within the team and the deadline was, again, the end of the
 year. The goal was to quickly integrate the outsourced component and
 tune a few features to the so expected meeting.
 
-By the time the team was understanding the outcomes of those issues,
+By the time the team understood the outcomes of those issues,
 the code had reached a critical situation. \texttt{TODO} marks were
 amazingly high and distance between tests and code was at its higher
 level. The work was being roughly divided in three: fixing bugs,
@@ -470,12 +468,12 @@ to do so, bugs needed to be eliminated. Any bugs found immediately
 gained the highest priority and should be solved in some way as soon
 as possible.
 
-With this new policy, the team started to find problems with the
-existing features because some cases conflicted. Those issues reported
-to the customer led him to better study and analyze his business model
-and the rules evolved so far. Thanks to the experience that the client
+With this new policy, the beta tester started to find problems with the
+existing features because some business rules were contradictory. The issues reported
+to the customer led him to study and analyze his business model
+better and the rules evolved. Thanks to the experience that the client
 had accumulated so far in the project, he allowed himself to
-experiment a few solutions until he felt more comfortable with the way
+experiment with a few solutions until he felt more comfortable with the way
 features worked, allowing him to seek consistency, conceptual
 integrity and the certainty that other choices were not as good as the
 one he had made.
@@ -486,32 +484,32 @@ one he had made.
 Successful software prototypes need not always be completely thrown
 away. This fact comes from the very nature of software and the ability
 to easily and quickly merge pieces of code together to produce a
-working system. Agility relies on this fact to allow for incremental
+working system using agile methodologies. Agility relies on this fact to allow for incremental
 evolution of the system and, therefore, supports that drafts should
 grow to complete features.
 
 By embracing that, if your prototypes are successful, they will be
-incorporated into the software, you can prepare to maintain that piece
-of code. It does not mean that prototypes should be developed exactly
-as well known complete features. Prototyping should be allowed to
-explore different solutions and should be invested in as they survive
-the selection process in a similar fashion to the set-based lean
-approach~\cite{Poppendieck2009}.
+incorporated into the software, but you have to prepare to maintain that
+code. It does not mean that prototypes should be developed exactly
+as well known complete features. Prototyping should allow you to
+explore different solutions and as they survive
+the selection process they should be refactored and evolved in a similar fashion to the set-based lean approach~\cite{Poppendieck2009}.
 
 Refactoring, testing and decoupling are essential to allow code
-evolution and should grow as the prototype starts to transform into a
-working feature. Unhandled exceptions, cases or behaviors should be
-strongly documented with tests or some other system that allows for
+evolution and should be practices that are strongly enforced as the prototype 
+starts to transform into a working feature. 
+Unhandled exceptions, cases or behaviors should be
+documented with tests or some other system that allows for
 quick listing and search.
 
 Although prototypes are not first class production code and much of
 their value comes from this lower class status, they are likely to
 climb the ladder up to working essential features of the system. It
-is very important to track this path and provide the necessary support
-to maintain this work. But do not fear to throw away anything either,
+is very important to track this evolution and provide the necessary support
+to maintain quality. Even so, do not fear to throw away anything either,
 the value provided by prototypes resides deeply in the knowledge they
 brought to the customers which means the code is much less valuable
-then we give it credit for.
+then we give it credit for. In our experience using prototypes to test out different ideas for the same feature proved invaluable, and many accepted prototypes were able to evolve to production code in the application.
 
 %
 % ---- Bibliography ----
@@ -523,6 +521,8 @@ then we give it credit for.
 
 \bibitem{DSDM} DSDM Consortium: DSDM: Business Focused
   Development. Addison-Wesley (2002)
+  
+\bibitem{XP} Kent Beck and Cynthia Andres: Extreme Programming Explained: Embrace Change, 2nd Edition. Addison-Wesley (2004)  
 
   % ale: achei que era uma boa ter mais referências sobre
   % prototipos. eu tirei essa história de prototipos de alta
