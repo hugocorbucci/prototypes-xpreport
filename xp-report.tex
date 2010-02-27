@@ -9,7 +9,8 @@
 \usepackage{graphicx}
 % \makeindex          % be prepared for an author index
 %
-\newcommand{\mari}[1]{\footnote{MARI: #1}}
+\newcommand{\ale}[1]{}%\footnote{ALE: #1}}
+\newcommand{\mari}[1]{}%\footnote{MARI: #1}}
 \begin{document}
 %
 \mainmatter % start of the contribution
@@ -64,8 +65,8 @@ or users to help them make a choice. Dynamic System Development Method
 methods also adopt many ideas related to this concept like
 spikes~\cite{XP} in the Extreme Programming exploration
 phase. However, those who have had some experience with this practice
-feel uncomfortable with it\cite{quem disse? esse tipo de afirmação é
-  sempre bom ter uma citação, já apanhei bastante sobre isso.  ale}.
+feel uncomfortable with it\ale{quem disse? esse tipo de afirmação é
+  sempre bom ter uma citação, já apanhei bastante sobre isso.}.
 
 Successful software prototypes look very much like complete features
 given a certain execution path. Therefore it is common that the
@@ -147,7 +148,7 @@ the idea since 2 years seemed like a too heavy investment for him
 alone.
 
 After the exploration phase, the consulting contract ended and a new
-negotiable scope contract\cite{tem citação pra esse tipo de contrato?}
+negotiable scope contract\ale{tem citação pra esse tipo de contrato?}
 with emphasis on development effort was established. This new contract
 established a team of 4 developers working with open scope that would
 be negotiated monthly, providing 160 hours of work each month. It
@@ -482,7 +483,7 @@ one he had made.
 \section{Conclusion}
 \label{sec:conclusion}
 
-Successful software prototypes are hardly ever completly thrown
+Successful software prototypes need not always be completely thrown
 away. This fact comes from the very nature of software and the ability
 to easily and quickly merge pieces of code together to produce a
 working system. Agility relies on this fact to allow for incremental
@@ -491,21 +492,21 @@ grow to complete features.
 
 By embracing that, if your prototypes are successful, they will be
 incorporated into the software, you can prepare to maintain that piece
-of code. It does not mean that prototypes should be devolved exactly
+of code. It does not mean that prototypes should be developed exactly
 as well known complete features. Prototyping should be allowed to
-explore different solutions and should get investment as they survive
+explore different solutions and should be invested in as they survive
 the selection process in a similar fashion to the set-based lean
 approach~\cite{Poppendieck2009}.
 
 Refactoring, testing and decoupling are essential to allow code
 evolution and should grow as the prototype starts to transform into a
-working feature. Unhandled exceptions, cases or behaviours should be
-strongly documented with tests or some other system that allow for
+working feature. Unhandled exceptions, cases or behaviors should be
+strongly documented with tests or some other system that allows for
 quick listing and search.
 
 Although prototypes are not first class production code and much of
-their value come from this lower class status, they are likely to
-climbing the ladder up to working essential features of the system. It
+their value comes from this lower class status, they are likely to
+climb the ladder up to working essential features of the system. It
 is very important to track this path and provide the necessary support
 to maintain this work. But do not fear to throw away anything either,
 the value provided by prototypes resides deeply in the knowledge they
