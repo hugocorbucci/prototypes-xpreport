@@ -40,12 +40,18 @@
 % \index{Dean, Jeffrey}
 
 \begin{abstract} % give a summary of your paper
+  Prototypes are a well known, widely accepted development practice
+  but, if not carefully evolved, they can become a little nightmare to
+  maintain. This paper presents the experience of a four people agile
+  team who successfully grew a new prototyped system to a
+  full-featured software system without any clear transition in the
+  project. The paper describes how the project started with a very
+  simple prototyping goal, evolved through iterations and spikes to a
+  partly working system and transformed, in the end, in a complete
+  system widely tested and refactored.
 
-  % TODO Abstract
-  This paper shows our experience evolving a prototype to a full
-  featured project.
   % please supply keywords within your abstract TODO Keywords
-  \keywords {prototype, agile methods, }
+  \keywords {prototype, agile methods, refactoring,  }
 \end{abstract}
 %
 \section{Introduction}
@@ -98,9 +104,9 @@ full featured application, we describe this change in Section
 \ref{sec:changes}. The following section (Section \ref{sec:adapting})
 shows how the team adapted to change to evolve the prototype to a
 production ready application. Finally Section \ref{sec:nowadays}
-presents the current status of the project. Section \ref{sec:conclusion} concludes with a
-summary of practices that were useful to go through this experience
-without much pain.
+presents the current status of the project. Section
+\ref{sec:conclusion} concludes with a summary of practices that were
+useful to go through this experience without much pain.
 
 \section{Starting the project}
 \label{sec:start}
@@ -186,8 +192,8 @@ how the team organized itself to achieve this goal.
 Given the project's objective, the customer always prioritized new
 features considering only one specific usage scenario. This meant
 that, for most features, there were several cases which the team was
-asked \textbf{not} to handle. Regarding the source code, it meant
-that no verification or validation was written and the prototype would
+asked \textbf{not} to handle. Regarding the source code, it meant that
+no verification or validation was written and the prototype would
 crash if the user did not behave as expected. We also incorporated
 several spikes as permanent solutions and did not handle a fair amount
 of exceptions, ignoring errors.
@@ -210,22 +216,24 @@ to manipulate and visualize this data. For these first features, it
 was easy to avoid inconsistencies since there were not many business
 rules involved.
 
-Meanwhile, the client's demonstration script was evolving as the prototype did
-and the team was able to use conditionals as needed to ignore cases he would not
-enter in during his presentation to investors. By October 2008, the main
-features from the first group were ready for demonstration, although not
-finished and polished for real use. However, by testing and playing with these
-features, the client felt that the program lacked an important aspect of script
-editing programs, which was the text editor itself. It was an epic initially
-included only in the second group of features, but he wanted to see how the text
-editor would integrate to allow viewing and editing of the meta-data he was
-creating. Therefore, he prioritized the inclusion of an incipient text editor
-in the prototype and started to detail stories related to this editor. As a
-result of this discovery, the client did not feel completely confident to
-present the software to the investors; even so, he started to make contact with
-a few people to schedule a meeting to December 2008. That date became our new
-deadline until which all efforts should be focused on making a prototyped text
-editor available for the demonstration.
+Meanwhile, the client's demonstration script was evolving as the
+prototype did and the team was able to use conditionals as needed to
+ignore cases he would not enter in during his presentation to
+investors. By October 2008, the main features from the first group
+were ready for demonstration, although not finished and polished for
+real use. However, by testing and playing with these features, the
+client felt that the program lacked an important aspect of script
+editing programs, which was the text editor itself. It was an epic
+initially included only in the second group of features, but he wanted
+to see how the text editor would integrate to allow viewing and
+editing of the meta-data he was creating. Therefore, he prioritized
+the inclusion of an incipient text editor in the prototype and started
+to detail stories related to this editor. As a result of this
+discovery, the client did not feel completely confident to present the
+software to the investors; even so, he started to make contact with a
+few people to schedule a meeting to December 2008. That date became
+our new deadline until which all efforts should be focused on making a
+prototyped text editor available for the demonstration.
 
 At this point, the pressure for polishing the new features increased
 since the project's fate would be decided at the demonstration and it
@@ -239,18 +247,18 @@ mandatory rules on the team, the general will to quickly deliver the
 features decreased the code quality considerably.
 
 From a development perspective, code quality was decreasing but since
-the client's satisfaction was still high, there was little that could be done.
-However, external interference was about to change a bit the situation. Section
-\ref{sec:changes} will explain how the project got affected and what new
-direction those changes pointed to.
+the client's satisfaction was still high, there was little that could
+be done.  However, external interference was about to change a bit the
+situation. Section \ref{sec:changes} will explain how the project got
+affected and what new direction those changes pointed to.
 
 \section{Changing the rules}
 \label{sec:changes}
 
-December 2008 came and went without any meeting. The company that
-the client was in contact with had just been acquired by another one
-so any project presentation was useless until things settled
-down. That news pushed the deadline away for another 3 or 4 months at
+December 2008 came and went without any meeting. The company that the
+client was in contact with had just been acquired by another one so
+any project presentation was useless until things settled down. That
+news pushed the deadline away for another 3 or 4 months at
 least. Along with this news came the information that the client had
 formed a dramaturgy experts group to help him better understand how to
 structure the application.
@@ -365,12 +373,12 @@ written to count the lines of production code and test code. Figure
 the same date as Figure \ref{fig:TODOs} to facilitate comparisons.
 
 As for the \texttt{TODO} metric, the lines of code showed the team a
-little issue regarding testing but it was not addressed immediately. It
-was well known that the code was not highly covered since there were
-no User Interface (UI) tests and quite a few feature were related to
-the way data was shown to the user. However, the team had a feeling
-that the effort to test the controller and model would have produced
-more test than code.
+little issue regarding testing but it was not addressed
+immediately. It was well known that the code was not highly covered
+since there were no User Interface (UI) tests and quite a few feature
+were related to the way data was shown to the user. However, the team
+had a feeling that the effort to test the controller and model would
+have produced more test than code.
 
 By this time, the customer started to mention again the presentation
 to the investors. It had been quite some time in the project now and
@@ -426,15 +434,16 @@ outsourced component and a throw away of the team's first
 solution. Along with this came a serious decrease in \texttt{TODO}
 marks, \texttt{instanceof}s and lines of production code as a
 considerable duplication was erased. By that time, the team was
-largely working with just two persons pairing full time since the third
-developers was involved in other projects and hardly managed to pair.
+largely working with just two persons pairing full time since the
+third developers was involved in other projects and hardly managed to
+pair.
 
 The team decided it should profit from that fact and decided to
 institute a merciless refactoring policy. No matter how small or how
 big the refactoring was, it had to be done and it was to be included
 as a regular part of each task and not as a separated task. Corner
-cases were not to be left unhandled and any unsupported work was to log
-its execution to the application error log. The impact of those
+cases were not to be left unhandled and any unsupported work was to
+log its execution to the application error log. The impact of those
 policies was fairly clear by the end of the month. All metrics had
 improved and more bugs were being listed by the development team.
 
@@ -454,20 +463,21 @@ However, in the next meeting, the client presented an officially hired
 beta tester that was going to support the team improve the usability
 of the system. They also presented the team with a load of new
 features and usability improvements that they wanted to have done. The
-client also mentioned that he was thinking seriously about dropping the
-quest for investors and releasing the product by himself. In order to
-do so, bugs needed to be eliminated. Any bugs found immediately gained
-the highest priority and should be solved in some way as soon as
-possible.
+client also mentioned that he was thinking seriously about dropping
+the quest for investors and releasing the product by himself. In order
+to do so, bugs needed to be eliminated. Any bugs found immediately
+gained the highest priority and should be solved in some way as soon
+as possible.
 
 With this new policy, the team started to find problems with the
 existing features because some cases conflicted. Those issues reported
-to the customer led him to better study and analyze his business model and
-the rules evolved so far. Thanks to the experience that the client had
-accumulated so far in the project, he allowed himself to experiment a
-few solutions until he felt more comfortable with the way features
-worked, allowing him to seek consistency, conceptual integrity and the
-certainty that other choices were not as good as the one he had made.
+to the customer led him to better study and analyze his business model
+and the rules evolved so far. Thanks to the experience that the client
+had accumulated so far in the project, he allowed himself to
+experiment a few solutions until he felt more comfortable with the way
+features worked, allowing him to seek consistency, conceptual
+integrity and the certainty that other choices were not as good as the
+one he had made.
 
 \section{Conclusion}
 \label{sec:conclusion}
