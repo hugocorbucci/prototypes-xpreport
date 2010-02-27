@@ -22,7 +22,7 @@ def plot nome_imagem, arquivo_de_dados, colunas, tamanho = "800, 400"
       plot.set 'timefmt', '"%d-%m-%Y"'
       plot.xrange "[\"03-07-2009\":\"18-02-2010\"]"
       plot.set 'xtics', "nomirror \"03-07-2009\", 2419200, \"18-02-2010\""
-      plot.yrange "[0:50000]"
+      plot.yrange "[0:60]"
 
       colunas.each_with_index do |coluna, indice|
         plot.data << plot_info(arquivo_de_dados, indice+2, coluna)

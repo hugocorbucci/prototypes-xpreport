@@ -22,7 +22,7 @@
 %                                     \toctitle is used
 %
 \author{Hugo Corbucci\inst{1} and Mariana V. Bravo \inst{1} and
-  Alexandre Freire\inst{1} and Fernando Freire\inst{1} and Paulo Morelli\inst{2}}
+  Alexandre Freire\inst{1} and\\Fernando Freire\inst{1} and Paulo Morelli\inst{2}}
 %
 \authorrunning{Hugo Corbucci et al.}   % abbreviated author list (for running head)
 %
@@ -31,9 +31,9 @@
 Fernando Freire and Paulo Moreli}
 %
 \institute{Agilbits, Sao Paulo, Brazil,\\
-\email{{hugo,marivb,freire,fernando}@agilbits.com.br}}
-%
-\institute{O2 Filmes, Sao Paulo, Brazil,\\
+\email{{hugo,marivb,freire,fernando}@agilbits.com.br}
+\and
+O2 Filmes, Sao Paulo, Brazil,\\
 \email{pmorelli@o2filmes.com}}
 
 \maketitle              % typeset the title of the contribution
@@ -57,64 +57,53 @@ Brooks mentioned it in The Mythical Man-Month~\cite{Brooks1975} as one
 of the best ways to provide a quick view of a feature to the clients
 or users to help them make a choice. Dynamic System Development Method
 (DSDM)~\cite{DSDM} is heavily based on prototyping and other agile
-methods also adopt many ideas related to this concept like spikes~\cite{XP} in
-the Extreme Programming exploration phase. However, those who have had some
-experience with this practice feel uncomfortable with it\cite{quem disse? esse
-tipo de afirmação é sempre bom ter uma citação, já apanhei bastante sobre isso.
-ale}.
+methods also adopt many ideas related to this concept like
+spikes~\cite{XP} in the Extreme Programming exploration
+phase. However, those who have had some experience with this practice
+feel uncomfortable with it\cite{quem disse? esse tipo de afirmação é
+  sempre bom ter uma citação, já apanhei bastante sobre isso.  ale}.
 
 Successful software prototypes look very much like complete features
 given a certain execution path. Therefore it is common that the
-customers are so satisfied that they want to integrate the
-prototypes to the working system and move on. The problem is that
-prototypes are frequently created in a ``quick and dirty'' fashion and
-the result is not adequate to be incorporated in a full-featured
-system. Yet it is quite hard to explain this fact to the stakeholders
-who usually do not want to invest any more money in this ``already
-working'' feature. The consequence is that they switch priorities,
-focus developer work efforts on other parts of the system and leave the rough
-prototype lost within the code base. Months or years later, the
-prototype has become a part of the system but is filled with bugs,
-unhandled corner cases and, frequently, crappy code. Nobody remembers
-what it was supposed to do or whether it is really
-important. Maintainability gets deeply affected and developers get
-that natural and unpleasant I-told-you-so feeling. %TODO trauma?
+customers are so satisfied that they want to integrate the prototypes
+to the working system and move on. The problem is that prototypes are
+frequently created in a ``quick and dirty'' fashion and the result is
+not adequate to be incorporated in a full-featured system. Yet it is
+quite hard to explain this fact to the stakeholders who usually do not
+want to invest any more money in this ``already working'' feature. The
+consequence is that they switch priorities, focus developer work
+efforts on other parts of the system and leave the rough prototype
+lost within the code base. Months or years later, the prototype has
+become a part of the system but is filled with bugs, unhandled corner
+cases and, frequently, crappy code. Nobody remembers what it was
+supposed to do or whether it is really important. Maintainability gets
+deeply affected and developers get that natural and unpleasant
+I-told-you-so feeling. %TODO trauma?
 
 Developers that have been through the pain of maintaining those dirty
-prototypes are no longer enthusiastic to work with prototypes. If
-they have to, they make it so that there will be absolutely no way to
+prototypes are no longer enthusiastic to work with prototypes. If they
+have to, they make it so that there will be absolutely no way to
 integrate the prototype to the existing system by either using a
 different platform, language or even creating prototypes in other
 medias. That inflexibility can reduce the ability of responding to
 changes quickly and therefore harm the clients' interests.
 
 This paper presents how a four-people collocated team managed to start
-a prototyping project and evolve it naturally to a full-featured application.
-The organization of this work follows a chronological order
-as the project evolved. Section \ref{sec:start} will present the
-project as it was first presented to the development team. Section
-\ref{sec:working} presents the work process established by the team to
-create the software based on prototypes.  After some time, the team
-felt that the customer was shifting to a full featured idea as
-described in Section \ref{sec:changes}. The following section (Section
-\ref{sec:adapting}) shows how the team adapted to those changes to
-accommodate both ideas. Finally Section \ref{sec:nowadays} presents the
-current status of the project and Section \ref{sec:conclusion}
-concludes with a summary of practices that were useful to go through
-this experience without much pain.
-\mari{ale reescreveu: We have organized this experience report following the
-chronological order of the project's evolution. Section \ref{sec:start} will
-present the project as it was first introduced to the development team. Section
-\ref{sec:working} presents the work process established by the team to create
-the software based on prototypes. After some time, the team felt that the
-customer needed a full featured application, we describe this change in Section
-\ref{sec:changes}. The following section (Section \ref{sec:adapting}) shows how
-the team adapted to change to evolve the prototype to a production ready
-application. Finally Section \ref{sec:nowadays} presents the current status of
-the project and the customer's feedback about it's evolution. Section
-\ref{sec:conclusion} concludes with a summary of practices that were useful to
-go through this experience without much pain.}
-
+a prototyping project and evolve it naturally to a full-featured
+application.  We have organized this experience report following the
+chronological order of the project's evolution. Section
+\ref{sec:start} will present the project as it was first introduced to
+the development team. Section \ref{sec:working} presents the work
+process established by the team to create the software based on
+prototypes. After some time, the team felt that the customer needed a
+full featured application, we describe this change in Section
+\ref{sec:changes}. The following section (Section \ref{sec:adapting})
+shows how the team adapted to change to evolve the prototype to a
+production ready application. Finally Section \ref{sec:nowadays}
+presents the current status of the project and the customer's feedback
+about it's evolution. Section \ref{sec:conclusion} concludes with a
+summary of practices that were useful to go through this experience
+without much pain.
 
 \section{Starting the project}
 \label{sec:start}
@@ -277,50 +266,53 @@ approach would not be able to support this new use of the system. The
 change had to be clear to the client so that development efforts would
 be directed to address this new way of working.
 
-The warnings came quickly from the dramaturgy study group. They started having
-trouble with several known and unknown corner cases, unexpected behaviors and
-just plain old bugs. The client noticed this and decided it was time to invest
-more in usability and user experience. The team made it clear that this would
-also mean less new features delivered and even managed to dedicate a whole
-iteration to refactoring.
+The warnings came quickly from the dramaturgy study group. They
+started having trouble with several known and unknown corner cases,
+unexpected behaviors and just plain old bugs. The client noticed this
+and decided it was time to invest more in usability and user
+experience. The team made it clear that this would also mean less new
+features delivered and even managed to dedicate a whole iteration to
+refactoring.
 
 At this point, the client started to understand the dilemma that the
-developers had felt so far. How to keep a good rhythm of new feature delivery
-and still cover most use cases of existing features? Another critical
-issue in the software was that, so far, most features were aimed at
-visualization and insertion of meta data in the scripts, but users
-were claiming for basic text editing features that had been ignored so far.
+developers had felt so far. How to keep a good rhythm of new feature
+delivery and still cover most use cases of existing features? Another
+critical issue in the software was that, so far, most features were
+aimed at visualization and insertion of meta data in the scripts, but
+users were claiming for basic text editing features that had been
+ignored so far.
 
-The team estimated that to have an editor with the basic functionality expected
-by the client would take at least three full iterations. This was not welcomed
-by the client since it would mean that no new features would be added until the
-moment when he would possibly be able to show the software to investors. So he
-took another action which indicated changes in the business plan of the project.
-The development team suggested that another team could work on text editing
-features parallel to them so that they could continue working on the new
-features he wanted.
+The team estimated that to have an editor with the basic functionality
+expected by the client would take at least three full iterations. This
+was not welcomed by the client since it would mean that no new
+features would be added until the moment when he would possibly be
+able to show the software to investors. So he took another action
+which indicated changes in the business plan of the project.  The
+development team suggested that another team could work on text
+editing features parallel to them so that they could continue working
+on the new features he wanted.
 
-After some research we discovered an open source Eclipse Rich Client WYSIWYG
-(What You See Is What You Get) HTML
-editor\footnote{\url{http://onpositive.com/richtext/} - Last accessed on
-20/02/2010}. The editor relied on a reimplementation of Eclipse's StyledText
-component which is responsible for rendering text within Eclipse editors. This
-component was close enough from the one we needed to implement, having some of
-the functionality our client wanted on our application. So the client outsourced
-the development of this underlying infra-structure to this open source project
-as a way to keep the new-feature delivery velocity while attending the users'
+After some research we discovered an open source Eclipse Rich Client
+WYSIWYG (What You See Is What You Get) HTML
+editor\footnote{\url{http://onpositive.com/richtext/} - Last accessed
+  on 20/02/2010}. The editor relied on a reimplementation of Eclipse's
+StyledText component which is responsible for rendering text within
+Eclipse editors. This component was close enough from the one we
+needed to implement, having some of the functionality our client
+wanted on our application. So the client outsourced the development of
+this underlying infra-structure to this open source project as a way
+to keep the new-feature delivery velocity while attending the users'
 requests.
 
 Meanwhile, the development team was concerned with the increasing
 complexity so they started to track some data from the source
 code. The first metrics was the amount of \texttt{FIXME},
 \texttt{TODO} and \texttt{XXX} marks in the code. As previously
-mentioned, the development team added those marks everywhere the felt
+mentioned, the development team added those marks everywhere they felt
 a corner case or a behavior existed but was not handled. Each mark had
 a small comment associated and the kind of the mark determined the
 criticality of the problem. Figure \ref{fig:TODOs} shows the evolution
-of those marks during the project. Notice that the first data
-collection of those marks is dated for mid July 2009.
+of those marks during the project.
 
 \begin{figure}[hbt]
   \centerline{
@@ -330,13 +322,45 @@ collection of those marks is dated for mid July 2009.
   \label{fig:TODOs}
 \end{figure}
 
+Notice that the first data collection of those marks is dated for mid
+July 2009. It took the team some time to consider this metric was
+important enough to be automatically tracked and generated. To
+consciously acknowledge that the team needed to track complexity was
+step one to adapt to the new direction. The next section will present
+other practices that allowed to handle this shift.
+
+\section{Adapting to the new rules}
+\label{sec:adapting}
+
 \begin{figure}[hbt]
   \centerline{
     \includegraphics[width=120mm]{LOCs.png}
   }
-  \caption{Evolution of production }
+  \caption{Evolution of production lines of code and test lines of
+    code}
   \label{fig:LOCs}
 \end{figure}
+
+While the amount of \texttt{TODO} marks was fairly high, the team
+still had to develop new prototyped features and therefore they
+accepted to just track it and try to keep it under control. While this
+gave the team some idea of code complexity, it did not help in showing
+if this complexity was being tamed by tests.
+
+By the beginning of August 2009, the client decided that it was
+important for him to be able to see the evolution of the work done by
+the Russian team and he decided to have two editors available on the
+application. The first one was Eclipse's original one and the second
+one was based on the new outsourced component. At this point, a major
+code duplication was performed since features were duplicated and the
+goal was to eliminate our old editor. The result was a huge increase
+in the marks tracking as well as an increase in lines of code and the
+team suspected tests were not following. A very simple script was
+written to count the lines of production code and test code. Figure
+\ref{fig:LOCs} shows how both metrics evolved over time. It starts at
+the same date as Figure \ref{fig:TODOs} to facilitate comparisons.
+
+% Comentar testes menores. Bugs recorrentes de UI
 
 \begin{figure}[hbt]
   \centerline{
@@ -350,25 +374,22 @@ collection of those marks is dated for mid July 2009.
   \centerline{
     \includegraphics[width=120mm]{refactoring.png}
   }
-  \caption{Explicit refactoring time by iteration - acho que se esse gráfico também fosse por data seria melhor pq dava pra comparar com os outros. ale}%TODO tirar comentario
+  \caption{Explicit refactoring time by iteration - acho que se esse
+    gráfico também fosse por data seria melhor pq dava pra comparar
+    com os outros. ale}%TODO tirar comentario
   \label{fig:refactoring}
 \end{figure}
-
-\section{Adapting to the new rules}
-\label{sec:adapting}
 
 Investing in reducing instanceof uses, TODOs and FIXMEs as well as
 increasing line of tests. Noticing most issues are coming from
 UI. SWTBot?
 
-Effort dedication to integrate the new outsourced component developed.
-
 Always handle (even if it means throwing an error to the log) corners
 cases or unexpected input/paths. Always refactor before completing any
 task. Tolerance 0 to bugs. Bug means highest priority.
 
-Help the customer understand inconsistencies with his business model and rules,
-evolve and adapt existing features to be more consistent.
+Help the customer understand inconsistencies with his business model
+and rules, evolve and adapt existing features to be more consistent.
 
 Introducing another developer in the team.
 
@@ -422,4 +443,3 @@ Refactor prototypes (their code must be good).
 \end{thebibliography}
 %
 \end{document}
->>>>>>> 65e64b0233e86ebeda0c73af97305952794d442d:xp-report.tex
