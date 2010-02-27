@@ -12,42 +12,40 @@
 \newcommand{\mari}[1]{\footnote{MARI: #1}}
 \begin{document}
 %
-\mainmatter              % start of the contribution
+\mainmatter % start of the contribution
 %
 \title{Prototypes are forever\\
   Evolving from a prototype project\\ to a full-featured system}
 %
-\titlerunning{Prototypes are forever}  % abbreviated title (for running head)
-%                                     also used for the TOC unless
-%                                     \toctitle is used
+\titlerunning{Prototypes are
+  forever} % abbreviated title (for running head)
+% also used for the TOC unless \toctitle is used
 %
 \author{Hugo Corbucci\inst{1} and Mariana V. Bravo \inst{1} and
-  Alexandre Freire\inst{1} and\\Fernando Freire\inst{1} and Paulo Morelli\inst{2}}
+  Alexandre Freire\inst{1}}
 %
-\authorrunning{Hugo Corbucci et al.}   % abbreviated author list (for running head)
+\authorrunning{Hugo Corbucci et
+  al.}  % abbreviated author list (for running head)
 %
-%%%% list of authors for the TOC (use if author list has to be modified)
-\tocauthor{Hugo Corbucci and Mariana V. Bravo and Alexandre Freire and
-Fernando Freire and Paulo Moreli}
+%%%% list of authors for the TOC (use if author list has to be
+%%%% modified)
+\tocauthor{Hugo Corbucci and Mariana V. Bravo and Alexandre Freire}
 %
 \institute{Agilbits, Sao Paulo, Brazil,\\
-\email{{hugo,marivb,freire,fernando}@agilbits.com.br}
-\and
-O2 Filmes, Sao Paulo, Brazil,\\
-\email{pmorelli@o2filmes.com}}
+  \email{{hugo,marivb,freire}@agilbits.com.br}}
 
-\maketitle              % typeset the title of the contribution
+\maketitle % typeset the title of the contribution
 % \index{Ekeland, Ivar} % entries for the author index
-% \index{Temam, Roger}  % of the whole volume
+% \index{Temam, Roger} % of the whole volume
 % \index{Dean, Jeffrey}
 
-\begin{abstract}        % give a summary of your paper
+\begin{abstract} % give a summary of your paper
 
-%TODO Abstract
-This paper shows our experience evolving a prototype to a full featured project.
-%                         please supply keywords within your abstract
-%TODO Keywords
-\keywords {prototype, agile methods, }
+  % TODO Abstract
+  This paper shows our experience evolving a prototype to a full
+  featured project.
+  % please supply keywords within your abstract TODO Keywords
+  \keywords {prototype, agile methods, }
 \end{abstract}
 %
 \section{Introduction}
@@ -100,8 +98,7 @@ full featured application, we describe this change in Section
 \ref{sec:changes}. The following section (Section \ref{sec:adapting})
 shows how the team adapted to change to evolve the prototype to a
 production ready application. Finally Section \ref{sec:nowadays}
-presents the current status of the project and the customer's feedback
-about it's evolution. Section \ref{sec:conclusion} concludes with a
+presents the current status of the project. Section \ref{sec:conclusion} concludes with a
 summary of practices that were useful to go through this experience
 without much pain.
 
@@ -128,13 +125,14 @@ existing open source software with several features and a copy-left
 license; the second one was an Eclipse Rich Client Application
 developed from scratch using Eclipse's open source framework.
 
-This initial estimation suggested that a four people team dedicating 4 daily
-work hours to the project would be able to build a working prototype of each
-feature described in about nine months of development using the existing open
-source software and about one year using Eclipse's platform. The open source
-solution had the advantage to provide full functionality of several other
-features. For a complete system, the estimation was well over 2 years of work on
-the Eclipse version and about a year and a half for the open source one.
+This initial estimation suggested that a four people team dedicating 4
+daily work hours to the project would be able to build a working
+prototype of each feature described in about nine months of
+development using the existing open source software and about one year
+using Eclipse's platform. The open source solution had the advantage
+to provide full functionality of several other features. For a
+complete system, the estimation was well over 2 years of work on the
+Eclipse version and about a year and a half for the open source one.
 
 After some discussion, the client opted for the Eclipse based solution
 due to the license restriction of the open source one which conflicted
@@ -142,103 +140,114 @@ with his business plan. He also chose to develop only a prototype of
 the idea since 2 years seemed like a too heavy investment for him
 alone.
 
-After the exploration phase, the consulting contract ended and a new negotiable
-scope contract\cite{tem citação pra esse tipo de contrato?} with emphasis on
-development effort was established. This new contract established a team of 4
-developers working with open scope that would be negotiated monthly, providing
-160 hours of work each month. It specifically stated that the developers would
-work on pairs all the time and that the developed system should have automated
-tests to the production code.
+After the exploration phase, the consulting contract ended and a new
+negotiable scope contract\cite{tem citação pra esse tipo de contrato?}
+with emphasis on development effort was established. This new contract
+established a team of 4 developers working with open scope that would
+be negotiated monthly, providing 160 hours of work each month. It
+specifically stated that the developers would work on pairs all the
+time and that the developed system should have automated tests to the
+production code.
 
 % Initial priority of the stories, taken from Paulo's spreadsheet:
 % Phase 1 => read TXT / separate and number act, sequence and scenes /
-%            read and show touch / read and show "thread" (characters) /
-%            "vision" (script tree) / zoom / add notes (summary) /
-%            edit touch and "threads"
-% Phase 2 => create script from scratch / edit script text / "mundo das fichas"
-% Phase 3 => read RTF / read and export FDR
+% read and show touch / read and show "thread" (characters) / "vision"
+% (script tree) / zoom / add notes (summary) / edit touch and
+% "threads" Phase 2 => create script from scratch / edit script text /
+% "mundo das fichas" Phase 3 => read RTF / read and export FDR
 
-The features initially presented to the team were grouped by the client into 3
-priority groups. The first group contained all features most critical to the
-client, the ones that would allow him to experiment with his ``big idea''. The
-second one comprised of some features already present in most script editors in
-the market, such as editing the script text itself. Most features in this second
-group were in fact epics. The third group contained only features to read and
-export to different file formats, such as those used by competitor programs.
+The features initially presented to the team were grouped by the
+client into 3 priority groups. The first group contained all features
+most critical to the client, the ones that would allow him to
+experiment with his ``big idea''. The second one comprised of some
+features already present in most script editors in the market, such as
+editing the script text itself. Most features in this second group
+were in fact epics. The third group contained only features to read
+and export to different file formats, such as those used by competitor
+programs.
 
-The project's goal was to create a high visual fidelity prototype with mostly
-faked or simplified features from the first group. The client would use this
-prototype to present his ideas to investors by October 2008. This meeting would
-either boost the project's development to a full featured system if the
-investors liked the idea or end its development in case they rejected it.
+The project's goal was to create a high visual fidelity prototype with
+mostly faked or simplified features from the first group. The client
+would use this prototype to present his ideas to investors by October
+2008. This meeting would either boost the project's development to a
+full featured system if the investors liked the idea or end its
+development in case they rejected it.
 
-That was the team's vision of the project when the development begun. A short
-seven months project whose fate would be decided by its capacity to impress
-investors. Therefore, the main goal was to provide support for the client's
-demonstration to ensure the project's growth and success. The next section
-(Section \ref{sec:working}) describes how the team organized itself to achieve
-this goal.
+That was the team's vision of the project when the development
+begun. A short seven months project whose fate would be decided by its
+capacity to impress investors. Therefore, the main goal was to provide
+support for the client's demonstration to ensure the project's growth
+and success. The next section (Section \ref{sec:working}) describes
+how the team organized itself to achieve this goal.
 
 \section{Prototyping phase}
 \label{sec:working}
 
-Given the project's objective, the customer always prioritized new features
-considering only one specific usage scenario. This meant that, for most
-features, there were several cases which the team was asked \textbf{not} to
-handle. Regarding the source code, this meant that no verification or validation
-was written and the prototype would crash if the user did not behave as
-expected. We also incorporated several spikes as permanent solutions and did not
-handle a fair amount of exceptions, ignoring errors.
+Given the project's objective, the customer always prioritized new
+features considering only one specific usage scenario. This meant
+that, for most features, there were several cases which the team was
+asked \textbf{not} to handle. Regarding the source code, this meant
+that no verification or validation was written and the prototype would
+crash if the user did not behave as expected. We also incorporated
+several spikes as permanent solutions and did not handle a fair amount
+of exceptions, ignoring errors.
 
-The team knew since the beginning that the client would change his mind over
-time. After all, it was partly to better understand his idea and its
-applicability that he wanted to build this prototype. This meant that features
-would be developed to later be thrown away while code produced only for a quick
-spike was going to become part of the system. Therefore, since the beginning the
-team invested on design, automated tests and refactoring, just enough to keep
-the system flexible to receive the next changes. The team also made it clear for
-the client that he would need some work done on features after he accepted them
-in order to polish the work.
+The team knew since the beginning that the client would change his
+mind over time. After all, it was partly to better understand his idea
+and its applicability that he wanted to build this prototype. This
+meant that features would be developed to later be thrown away while
+code produced only for a quick spike was going to become part of the
+system. Therefore, since the beginning the team invested on design,
+automated tests and refactoring, just enough to keep the system
+flexible to receive the next changes. The team also made it clear for
+the client that he would need some work done on features after he
+accepted them in order to polish the work.
 
-The first few iterations went quite smooth, developing features from the first
-phase which involved importing a script in a text-only format, providing a
-simple way to mark text with meta-data and a way to manipulate and visualize
-this data. For these first features, it was simple to avoid inconsistencies
-since there were not many business rules involved. Problems started to appear on
-later iterations once we needed to save changes and handle script modifications
-with more complex business rules.\mari{ainda nao gosto dessa frase...}
+The first few iterations went quite smooth, developing features from
+the first phase which involved importing a script in a text-only
+format, providing a simple way to mark text with meta-data and a way
+to manipulate and visualize this data. For these first features, it
+was simple to avoid inconsistencies since there were not many business
+rules involved. Problems started to appear on later iterations once we
+needed to save changes and handle script modifications with more
+complex business rules.
+%TODO \mari{ainda nao gosto dessa frase...}
 
 % TODO Mari quer rever esse paragrafo, parece historicamente incorreto
-% as features do "grupo 1" estavam "prontas" (prototipadas), mas ele quis
-% entrar no editor, que estava no grupo 2.
-The client's demonstration script was evolving as the prototype did and the team
-had to use conditionals to ignore cases he would not enter in during his
-presentation to investors. By October 2008, the main features planned were ready
-for demonstration, but not polished, the prototype provided high visual fidelity
-but lacked functionality fidelity. Even so, the client was not feeling
-completely confident to present the software to the investors because he had
-discovered and prioritized new features that he felt were important but that
-were still incipient in the prototype. However, he started to make contact with
-a few people to schedule a meeting by the end of November 2008 or start of
-December 2008. Those dates became our new deadline until which all efforts
-should be focused on making those incipient features available for the
-demonstration.
+% as features do "grupo 1" estavam "prontas" (prototipadas), mas ele
+% quis entrar no editor, que estava no grupo 2.
+The client's demonstration script was evolving as the prototype did
+and the team had to use conditionals to ignore cases he would not
+enter in during his presentation to investors. By October 2008, the
+main features planned were ready for demonstration, but not polished,
+the prototype provided high visual fidelity but lacked functionality
+fidelity. Even so, the client was not feeling completely confident to
+present the software to the investors because he had discovered and
+prioritized new features that he felt were important but that were
+still incipient in the prototype. However, he started to make contact
+with a few people to schedule a meeting by the end of November 2008 or
+start of December 2008. Those dates became our new deadline until
+which all efforts should be focused on making those incipient features
+available for the demonstration.
 
-At this point, the pressure for polishing the new features increased since the
-project's fate would be decided at the demonstration and it was close! The
-customer wanted the team to ignore corner cases, speed up delivery and ensure
-the demonstration would run smoothly. The excitement from the important
-presentation to other people (only our one client and us had seen the software
-so far) was a strong motivation for the development team to deliver all features
-the client had asked for. Yet, despite unit testing and pair programming being
-mandatory rules on the team, the general will to quickly deliver the features
-decreased the code quality considerably.
+At this point, the pressure for polishing the new features increased
+since the project's fate would be decided at the demonstration and it
+was close! The customer wanted the team to ignore corner cases, speed
+up delivery and ensure the demonstration would run smoothly. The
+excitement from the important presentation to other people (only our
+one client and us had seen the software so far) was a strong
+motivation for the development team to deliver all features the client
+had asked for. Yet, despite unit testing and pair programming being
+mandatory rules on the team, the general will to quickly deliver the
+features decreased the code quality considerably.
 
-Things were getting quite unpleasant\mari{mari tb não gosta do "unpleasant"}
-from a development perspective but since the client satisfaction was still high,
-there was little that could be done. However, external interference was about to
-change a bit the situation. Section \ref{sec:changes} will explain how the
-project got affected and what new direction those changes pointed to.
+Things were getting quite unpleasant
+%TODO \mari{mari tb não gosta do  "unpleasant"}
+from a development perspective but since the client
+satisfaction was still high, there was little that could be
+done. However, external interference was about to change a bit the
+situation. Section \ref{sec:changes} will explain how the project got
+affected and what new direction those changes pointed to.
 
 \section{Changing the rules}
 \label{sec:changes}
@@ -360,7 +369,24 @@ written to count the lines of production code and test code. Figure
 \ref{fig:LOCs} shows how both metrics evolved over time. It starts at
 the same date as Figure \ref{fig:TODOs} to facilitate comparisons.
 
-% Comentar testes menores. Bugs recorrentes de UI
+As for the \texttt{TODO} metric, the lines of code showed the team a
+little issue regarding testing but it was not addressed immediatly. It
+was well known that the code was not highly covered since there were
+no User Interface (UI) tests and quite a few feature were related to
+the way data was shown to the user. However, the team had a feeling
+that the effort to test the controller and model would have produced
+more test than code.
+
+By the time the team was understanding the outcomes of those issues,
+the code had reached a critical situation. \texttt{TODO} marks were
+amazingly high and distance between tests and code was at its higher
+level. The work was being roughly divided in three: fixing bugs,
+implementing new features and integrating the outsourced
+component. By this time, the team also suffered the loss of a member
+who was required in a full time consulting work. The team went from
+two pairs to one pair and an extra person and the velocity
+decreased. Something had to be done or the project was going to become
+impossible to maintain.
 
 \begin{figure}[hbt]
   \centerline{
@@ -374,9 +400,7 @@ the same date as Figure \ref{fig:TODOs} to facilitate comparisons.
   \centerline{
     \includegraphics[width=120mm]{refactoring.png}
   }
-  \caption{Explicit refactoring time by iteration - acho que se esse
-    gráfico também fosse por data seria melhor pq dava pra comparar
-    com os outros. ale}%TODO tirar comentario
+  \caption{Explicit refactoring time by iteration}
   \label{fig:refactoring}
 \end{figure}
 
@@ -402,16 +426,6 @@ Testing in other platforms
 
 Merciless decoupling
 
-\begin{enumerate}
-\item Before beginning the project, what were your expectations? How did you imagine the software you wanted and what it would become?
-\item How did your idea evolve during the project? What took you to change your plan?
-\item What effect had the fact that you could test your higher priority ideas with working software being delivered often?
-\item What do you think about the application you have today in relationship to what you expected in the begining?
-\item How do you evaluate the interactive learning process?
-\item How do you evaluate the development process?
-\item How satisfied are you with the evolution of the application?
-\end{enumerate}
-
 \section{Conclusion}
 \label{sec:conclusion}
 
@@ -429,16 +443,18 @@ Refactor prototypes (their code must be good).
 \bibitem{Brooks1975} Brooks Jr., F.P.: The Mythical Man Month: Essays
   on Software Engineering. Addison-Wesley (1975)
 
-\bibitem{DSDM} DSDM Consortium: DSDM: Business Focused Development. Addison-Wesley (2002)
+\bibitem{DSDM} DSDM Consortium: DSDM: Business Focused
+  Development. Addison-Wesley (2002)
 
-% ale: achei que era uma boa ter mais referências sobre prototipos. eu tirei
-% essa história de prototipos de alta fidelidade visual ou alta fidelidade
-% funcional de uma apresentação que vi sobre UX e prototipagem de interface lá na
-% locaweb, no scholar.google achei isso aqui:
+  % ale: achei que era uma boa ter mais referências sobre
+  % prototipos. eu tirei essa história de prototipos de alta
+  % fidelidade visual ou alta fidelidade funcional de uma apresentação
+  % que vi sobre UX e prototipagem de interface lá na locaweb, no
+  % scholar.google achei isso aqui:
 
-% http://74.125.155.132/scholar?q=cache:ezGZKBBRVhwJ:scholar.google.com/+software+prototype&hl=pt-BR&as_sdt=2000
+  % http://74.125.155.132/scholar?q=cache:ezGZKBBRVhwJ:scholar.google.com/+software+prototype&hl=pt-BR&as_sdt=2000
 
-% http://www.imamu.edu.sa/Scientific_selections/abstracts/Documents/A%20Systematic%20Look%20At%20Prototyping.pdf
+  % http://www.imamu.edu.sa/Scientific_selections/abstracts/Documents/A%20Systematic%20Look%20At%20Prototyping.pdf
 
 \end{thebibliography}
 %
