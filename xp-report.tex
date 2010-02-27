@@ -377,16 +377,29 @@ the way data was shown to the user. However, the team had a feeling
 that the effort to test the controller and model would have produced
 more test than code.
 
+By this time, the customer started to mention again the presentation
+to the investors. It had been quite some time in the project now and
+he was feeling he had spent enough money and needed some external
+investment. Therefore the old investor meeting pressure installed
+itself within the team and the deadline was, again, the end of the
+year. The goal was to quickly integrate the outsourced component and
+tune a few features to the so expected meeting.
+
 By the time the team was understanding the outcomes of those issues,
 the code had reached a critical situation. \texttt{TODO} marks were
 amazingly high and distance between tests and code was at its higher
 level. The work was being roughly divided in three: fixing bugs,
-implementing new features and integrating the outsourced
-component. By this time, the team also suffered the loss of a member
-who was required in a full time consulting work. The team went from
-two pairs to one pair and an extra person and the velocity
-decreased. Something had to be done or the project was going to become
-impossible to maintain.
+implementing new features and integrating the outsourced component. By
+this time, the team also suffered the loss of a member who was
+required in a full time consulting work. The team went from two pairs
+to one pair and an extra person and the velocity decreased.
+
+Figure \ref{fig:InstanceOfs} shows yet another complexity tracker
+developed by the team. Counting the amount of \texttt{instanceof} Java
+reserved word led the team to understand the level of special cases
+unfactored in the code. Although Eclipse's framework required a few of
+those, some of them were avoidable and the team felt reducing this
+number would lead to a more factored code.
 
 \begin{figure}[hbt]
   \centerline{
@@ -396,17 +409,25 @@ impossible to maintain.
   \label{fig:InstanceOfs}
 \end{figure}
 
-\begin{figure}[hbt]
-  \centerline{
-    \includegraphics[width=120mm]{refactoring.png}
-  }
-  \caption{Explicit refactoring time by iteration}
-  \label{fig:refactoring}
-\end{figure}
+Curiously, as for the two previous metrics, the effect of tracking the
+number of \texttt{instanceof} was not immediate. More interestingly
+than that, in a short time span, having the metric did not stop it
+from getting worse. In the rush to produce the features, the team was
+becoming reckless with code quality.  Something had to be done or the
+project was going to become impossible to maintain and the client's
+demonstration would surely suffer from it.
 
-Investing in reducing instanceof uses, TODOs and FIXMEs as well as
-increasing line of tests. Noticing most issues are coming from
-UI. SWTBot?
+With three persons working by the end of the year to match a two pairs
+velocity and reducing complexity, the team had to calm down, step back
+and rethink about agile values. Section \ref{sec:nowadays} presents
+the resolutions the team adopted and their impact on the current
+version of the system.
+
+\section{Current status}
+\label{sec:nowadays}
+
+December arrived and it was time to accept a full integration of the
+outsourced component and a throw away of the team's first solution.
 
 Always handle (even if it means throwing an error to the log) corners
 cases or unexpected input/paths. Always refactor before completing any
@@ -416,9 +437,6 @@ Help the customer understand inconsistencies with his business model
 and rules, evolve and adapt existing features to be more consistent.
 
 Introducing another developer in the team.
-
-\section{Current status and customer feedback}
-\label{sec:nowadays}
 
 Test coverage
 
