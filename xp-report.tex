@@ -369,16 +369,29 @@ the way data was shown to the user. However, the team had a feeling
 that the effort to test the controller and model would have produced
 more test than code.
 
+By this time, the customer started to mention again the presentation
+to the investors. It had been quite some time in the project now and
+he was feeling he had spent enough money and needed some external
+investment. Therefore the old investor meeting pressure installed
+itself within the team and the deadline was, again, the end of the
+year. The goal was to quickly integrate the outsourced component and
+tune a few features to the so expected meeting.
+
 By the time the team was understanding the outcomes of those issues,
 the code had reached a critical situation. \texttt{TODO} marks were
 amazingly high and distance between tests and code was at its higher
 level. The work was being roughly divided in three: fixing bugs,
-implementing new features and integrating the outsourced
-component. By this time, the team also suffered the loss of a member
-who was required in a full time consulting work. The team went from
-two pairs to one pair and an extra person and the velocity
-decreased. Something had to be done or the project was going to become
-impossible to maintain.
+implementing new features and integrating the outsourced component. By
+this time, the team also suffered the loss of a member who was
+required in a full time consulting work. The team went from two pairs
+to one pair and an extra person and the velocity decreased.
+
+Figure \ref{fig:InstanceOfs} shows yet another complexity tracker
+developed by the team. Counting the amount of \texttt{instanceof} Java
+reserved word led the team to understand the level of special cases
+unfactored in the code. Although Eclipse's framework required a few of
+those, some of them were avoidable and the team felt reducing this
+number would lead to a more factored code.
 
 \begin{figure}[hbt]
   \centerline{
@@ -388,35 +401,70 @@ impossible to maintain.
   \label{fig:InstanceOfs}
 \end{figure}
 
-\begin{figure}[hbt]
-  \centerline{
-    \includegraphics[width=120mm]{refactoring.png}
-  }
-  \caption{Explicit refactoring time by iteration}
-  \label{fig:refactoring}
-\end{figure}
+Curiously, as for the two previous metrics, the effect of tracking the
+number of \texttt{instanceof} was not immediate. More interestingly
+than that, in a short time span, having the metric did not stop it
+from getting worse. In the rush to produce the features, the team was
+becoming reckless with code quality.  Something had to be done or the
+project was going to become impossible to maintain and the client's
+demonstration would surely suffer from it.
 
-Investing in reducing instanceof uses, TODOs and FIXMEs as well as
-increasing line of tests. Noticing most issues are coming from
-UI. SWTBot?
+With three persons working by the end of the year to match a two pairs
+velocity and reducing complexity, the team had to calm down, step back
+and rethink about agile values. Section \ref{sec:nowadays} presents
+the resolutions the team adopted and their impact on the current
+version of the system.
 
-Always handle (even if it means throwing an error to the log) corners
-cases or unexpected input/paths. Always refactor before completing any
-task. Tolerance 0 to bugs. Bug means highest priority.
-
-Help the customer understand inconsistencies with his business model
-and rules, evolve and adapt existing features to be more consistent.
-
-Introducing another developer in the team.
-
-\section{Current status and customer feedback}
+\section{Current status}
 \label{sec:nowadays}
 
-Test coverage
+December arrived and it was time to accept a full integration of the
+outsourced component and a throw away of the team's first
+solution. Along with this came a serious decrease in \texttt{TODO}
+marks, \texttt{instanceof}s and lines of production code as a
+considerable duplication was erased. By that time, the team was
+largely working with just two persons paring full time since the third
+developers was involved in other projects and hardly managed to pair.
 
-Testing in other platforms
+The team decided it should profit from that fact and decided to
+institute a merciless refactoring policy. No matter how small or how
+big the refactoring was, it had to be done and it was to be included
+as a regular part of each task and not as a separated task. Corner
+cases were not to be left handled and any unsupported work was to log
+its execution to the application error log. The impact of those
+policies was fairly clear by the end of the month. All metrics had
+improved and more bugs were being listed by the development team.
 
-Merciless decoupling
+The month passed and no meeting was scheduled. The famous deadline
+was, once again, a myth. With code quality increasing, \texttt{TODO}
+marks decreasing, test code improving and bugs being caught by the
+development team (instead of the users), the team felt an extra
+developer would help increase velocity and so started to train him to
+join the team in January. With the insertion of this new member in the
+team, some work was performed on another platform which led to the
+discovery of a serie of platform specific bugs. The general feeling
+was that the client was getting ready to wrap up the project since he
+was quite happy with the software and was considering he invested too
+much already on this idea.
+
+However, in the next meeting, the client presented an official hired
+beta tester that was going to support the team improve the usability
+of the system. They also presented the team with a load of new
+features and usability improvements that they wanted to have done. The
+client also mentioned that he thinking seriously about dropping the
+quest for investors and releasing the product by himself. In order to
+do so, bugs needed to be eliminated. Any bugs found immediately gained
+the highest priority and should be solved in some way as soon as
+possible.
+
+With this new policy, the team started to find problems with the
+existing features because some cases conflicted. Those issues reported
+to the customer led him study and analyse more his business model and
+the rules evolved so far. Thanks to the experience that the client had
+accumulated so far in the project, he allowed himself to experiment a
+few solutions until he felt more comfortable with the way features
+worked allowing him to seek consistency, conceptual integrity and the
+certainty that other choices were not as good as the one he had made.
 
 \section{Conclusion}
 \label{sec:conclusion}
