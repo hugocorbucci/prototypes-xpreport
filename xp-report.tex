@@ -248,76 +248,41 @@ direction those changes pointed to.
 \section{Changing the rules}
 \label{sec:changes}
 
-December 2008 came and went without any meeting. The company that
-the client was in contact with had just been acquired by another one
-so any project presentation was useless until things settled
-down. That news pushed the deadline away for another 3 or 4 months at
-least. Along with this news came the information that the client had
-formed a dramaturgy experts group to help him better understand how to
-structure the application.
+December 2008 came and went without any meeting. The company that the client was
+in contact with had just been acquired by another one so any project
+presentation was useless until things settled down. This relieved the team of
+the pressure of the upcoming deadline and we finally acknowledged the burden of
+unhandled technical debt. All members of the development team agreed that the
+code was getting complex and the quality was decreasing which was affecting
+productivity and speed. This combined nicely with the client's request for a
+more complete text editor, with less mock-ups and simplifications. The first
+iteration of 2009 was dedicated entirely to refactoring the prototyped editor we
+had so far, and the iterations that followed further developed this editor to
+include more business rules.
 
-This new context relieved a 4 months pressure of upcoming deadline
-over a team which was beginning to feel the burden of unhandled
-technical debt. All members of the development team agreed that the
-code was getting complex and the quality was decreasing which was
-affecting productivity and speed. The software was now going to have a
-set of beta testers and it needed to perform decently to allow the
-users to suggest improvements for it.
+Although the meeting with investors was mentioned in this period, again it did
+not take place. The general feeling the development team had was that the
+project was no longer aimed at a simple presentation to investors. It was softly
+switching to a more elaborate end-user oriented application. This seemed to be
+confirmed by two important and concomitant changes that happened between June
+and July 2009.
 
-The general feeling was that the project was no longer aimed at a
-simple presentation to investors. It was softly switching to a more
-elaborate end user oriented application. The current development
-approach would not be able to support this new use of the system. The
-change had to be clear to the client so that development efforts would
-be directed to address this new way of working.
+In that period, the client was asking for a much more complex and full-featured text editor and, at the same time, was exploring and wanted to develop new features as an evolution and complement to his previous idea. At this point, the client started to understand the dilemma that the developers had felt so far. How to keep a good rhythm of new feature delivery and still cover most use cases of existing features?
 
-The warnings came quickly from the dramaturgy study group. They
-started having trouble with several known and unknown corner cases,
-unexpected behaviors and just plain old bugs. The client noticed this
-and decided it was time to invest more in usability and user
-experience. The team made it clear that this would also mean less new
-features delivered and even managed to dedicate a whole iteration to
-refactoring.
+The team estimated that to have an editor with the more complex functionality expected by the client would take at least three full iterations. He did not welcome this news, since it would mean that no new features would be added for a while and he wanted to explore them with the investors' meeting still in mind. So, the development team suggested that another team could work on text editing features parallel to them so that they could continue working on the new features he wanted. He accepted this idea, and
 
-At this point, the client started to understand the dilemma that the
-developers had felt so far. How to keep a good rhythm of new feature
-delivery and still cover most use cases of existing features? Another
-critical issue in the software was that, so far, most features were
-aimed at visualization and insertion of meta data in the scripts, but
-users were claiming for basic text editing features that had been
-ignored so far.
+After some research we discovered an open source Eclipse Rich Client WYSIWYG (What You See Is What You Get) HTML editor\footnote{\url{http://onpositive.com/richtext/} - Last accessed on 20/02/2010}. The editor relied on a reimplementation of Eclipse's StyledText component which is responsible for rendering text within Eclipse editors. This component was close enough from the one we needed to implement, having some of the functionality our client wanted on our application. So the client outsourced the development of this underlying infra-structure to this open source project as a way to keep the new-feature delivery velocity while attending the users' requests.
 
-The team estimated that to have an editor with the basic functionality
-expected by the client would take at least three full iterations. This
-was not welcomed by the client since it would mean that no new
-features would be added until the moment when he would possibly be
-able to show the software to investors. So he took another action
-which indicated changes in the business plan of the project.  The
-development team suggested that another team could work on text
-editing features parallel to them so that they could continue working
-on the new features he wanted.
 
-After some research we discovered an open source Eclipse Rich Client
-WYSIWYG (What You See Is What You Get) HTML
-editor\footnote{\url{http://onpositive.com/richtext/} - Last accessed
-  on 20/02/2010}. The editor relied on a reimplementation of Eclipse's
-StyledText component which is responsible for rendering text within
-Eclipse editors. This component was close enough from the one we
-needed to implement, having some of the functionality our client
-wanted on our application. So the client outsourced the development of
-this underlying infra-structure to this open source project as a way
-to keep the new-feature delivery velocity while attending the users'
-requests.
 
-Meanwhile, the development team was concerned with the increasing
-complexity so they started to track some data from the source
-code. The first metrics was the amount of \texttt{FIXME},
-\texttt{TODO} and \texttt{XXX} marks in the code. As previously
-mentioned, the development team added those marks everywhere they felt
-a corner case or a behavior existed but was not handled. Each mark had
-a small comment associated and the kind of the mark determined the
-criticality of the problem. Figure \ref{fig:TODOs} shows the evolution
-of those marks during the project.
+He had also formed a dramaturgy experts group to help him better understand how to structure the application. The software was now going to have a set of beta testers and it needed to perform decently to allow the users to suggest improvements for it.
+
+However, the current development approach would not be able to support this new use of the system. The change had to be clear to the client so that development efforts would be directed to address this new way of working.
+
+The warnings came quickly from the dramaturgy study group. They started having trouble with several known and unknown corner cases, unexpected behaviors and just plain old bugs. The client noticed this and decided it was time to invest more in usability and user experience. The team made it clear that this would also mean less new features delivered and even managed to dedicate a whole iteration to refactoring.
+
+
+Meanwhile, the development team was concerned with the increasing complexity so they started to track some data from the source code. The first metrics was the amount of \texttt{FIXME}, \texttt{TODO} and \texttt{XXX} marks in the code. As previously mentioned, the development team added those marks everywhere they felt a corner case or a behavior existed but was not handled. Each mark had a small comment associated and the kind of the mark determined the criticality of the problem. Figure \ref{fig:TODOs} shows the evolution of those marks during the project.
 
 \begin{figure}[hbt]
   \centerline{
@@ -327,12 +292,7 @@ of those marks during the project.
   \label{fig:TODOs}
 \end{figure}
 
-Notice that the first data collection of those marks is dated for mid
-July 2009. It took the team some time to consider this metric was
-important enough to be automatically tracked and generated. To
-consciously acknowledge that the team needed to track complexity was
-step one to adapt to the new direction. The next section will present
-other practices that allowed to handle this shift.
+Notice that the first data collection of those marks is dated for mid July 2009. It took the team some time to consider this metric was important enough to be automatically tracked and generated. To consciously acknowledge that the team needed to track complexity was step one to adapt to the new direction. The next section will present other practices that allowed to handle this shift.
 
 \section{Adapting to the new rules}
 \label{sec:adapting}
