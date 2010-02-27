@@ -427,22 +427,52 @@ version of the system.
 \label{sec:nowadays}
 
 December arrived and it was time to accept a full integration of the
-outsourced component and a throw away of the team's first solution.
+outsourced component and a throw away of the team's first
+solution. Along with this came a serious decrease in \texttt{TODO}
+marks, \texttt{instanceof}s and lines of production code as a
+considerable duplication was erased. By that time, the team was
+largely working with just two persons paring full time since the third
+developers was involved in other projects and hardly managed to pair.
 
-Always handle (even if it means throwing an error to the log) corners
-cases or unexpected input/paths. Always refactor before completing any
-task. Tolerance 0 to bugs. Bug means highest priority.
+The team decided it should profit from that fact and decided to
+institute a merciless refactoring policy. No matter how small or how
+big the refactoring was, it had to be done and it was to be included
+as a regular part of each task and not as a separated task. Corner
+cases were not to be left handled and any unsupported work was to log
+its execution to the application error log. The impact of those
+policies was fairly clear by the end of the month. All metrics had
+improved and more bugs were being listed by the development team.
 
-Help the customer understand inconsistencies with his business model
-and rules, evolve and adapt existing features to be more consistent.
+The month passed and no meeting was scheduled. The famous deadline
+was, once again, a myth. With code quality increasing, \texttt{TODO}
+marks decreasing, test code improving and bugs being caught by the
+development team (instead of the users), the team felt an extra
+developer would help increase velocity and so started to train him to
+join the team in January. With the insertion of this new member in the
+team, some work was performed on another platform which led to the
+discovery of a serie of platform specific bugs. The general feeling
+was that the client was getting ready to wrap up the project since he
+was quite happy with the software and was considering he invested too
+much already on this idea.
 
-Introducing another developer in the team.
+However, in the next meeting, the client presented an official hired
+beta tester that was going to support the team improve the usability
+of the system. They also presented the team with a load of new
+features and usability improvements that they wanted to have done. The
+client also mentioned that he thinking seriously about dropping the
+quest for investors and releasing the product by himself. In order to
+do so, bugs needed to be eliminated. Any bugs found immediately gained
+the highest priority and should be solved in some way as soon as
+possible.
 
-Test coverage
-
-Testing in other platforms
-
-Merciless decoupling
+With this new policy, the team started to find problems with the
+existing features because some cases conflicted. Those issues reported
+to the customer led him study and analyse more his business model and
+the rules evolved so far. Thanks to the experience that the client had
+accumulated so far in the project, he allowed himself to experiment a
+few solutions until he felt more comfortable with the way features
+worked allowing him to seek consistency, conceptual integrity and the
+certainty that other choices were not as good as the one he had made.
 
 \section{Conclusion}
 \label{sec:conclusion}
