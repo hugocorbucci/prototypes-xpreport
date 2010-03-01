@@ -23,17 +23,19 @@
 % also used for the TOC unless \toctitle is used
 %
 \author{Hugo Corbucci\inst{1} and Mariana V. Bravo \inst{1} and
-  Alexandre Freire da Silva\inst{1}}
+  Alexandre Freire da Silva\inst{1}and Fernando Freire da
+  Silva\inst{1}}
 %
 \authorrunning{Hugo Corbucci et
   al.}  % abbreviated author list (for running head)
 %
 %%%% list of authors for the TOC (use if author list has to be
 %%%% modified)
-\tocauthor{Hugo Corbucci and Mariana V. Bravo and Alexandre Freire da Silva}
+\tocauthor{Hugo Corbucci and Mariana V. Bravo and Alexandre Freire da
+  Silva and Fernando Freire da Silva}
 %
 \institute{Agilbits, Sao Paulo, Brazil,\\
-  \email{{hugo,marivb,freire}@agilbits.com.br}}
+  \email{{hugo,marivb,freire,fernando}@agilbits.com.br}}
 
 \maketitle % typeset the title of the contribution
 % \index{Ekeland, Ivar} % entries for the author index
@@ -42,14 +44,14 @@
 
 \begin{abstract} % give a summary of your paper
   Prototypes are a well known, widely accepted development practice
-  but, if not carefully evolved, they can become a little nightmare to
+  but, if not carefully evolved, they can become a nightmare to
   maintain. This paper presents the experience of a four people agile
-  team who successfully grew a prototyped system to a
-  full-featured application without any clear transition in the
-  project. The paper describes how the project started with a very
-  simple prototyping goal, evolved through iterations and spikes to a
-  partly working system and transformed, in the end, in a complete
-  application widely tested and refactored.
+  team who successfully grew a prototyped system to a full-featured
+  application without any clear transition in the project. The paper
+  describes how the project started with a very simple prototyping
+  goal, evolved through iterations and spikes to a partly working
+  system and transformed, in the end, in a complete application widely
+  tested and refactored.
 
   % please supply keywords within your abstract TODO Keywords
   \keywords {prototype, agile methods, refactoring}
@@ -60,9 +62,9 @@
 Prototyping is an activity that most developers have heard about. Fred
 Brooks mentioned it in The Mythical Man-Month~\cite{Brooks1975} as one
 of the best ways to provide a quick view of a feature to the clients
-or users to help them make a choice. Dynamic System Development Method
-(DSDM)~\cite{DSDM} is heavily based on prototyping and other agile
-methods also adopt many ideas related to this concept, like
+or users to help them make a choice. Many agile methods - Dynamic
+System Development Method (DSDM)~\cite{DSDM} is heavily based on
+prototyping - adopt ideas related to this concept, like
 spikes~\cite{XP} in XP exploration phase.
 
 Successful software prototypes look very much like complete features
@@ -70,15 +72,15 @@ given a certain execution path. Therefore it is common that the
 customers are so satisfied that they want to integrate the prototypes
 into the working system and move on. The problem is that prototypes
 are frequently created in a ``quick and dirty'' fashion and the result
-is not adequate to be incorporated in a full-featured system. Yet it
-is quite hard to explain this fact to the stakeholders who usually do
-not want to invest any more money in this ``already working''
-feature. The consequence is that they switch priorities, focus
-developer work efforts on other parts of the system and leave the
-rough prototype lost within the code base. Months or years later, the
-prototype has become a part of the system but is filled with bugs,
-unhandled corner cases and, frequently, cruddy code. Nobody remembers
-what it was supposed to do or whether it is really
+is not adequate to be incorporated in a full-featured
+system. Furthermore, it is quite hard to explain this fact to the
+stakeholders who usually do not want to invest any more money in this
+``already working'' feature. The consequence is that they switch
+priorities, focus developer work efforts on other parts of the system
+and leave the rough prototype lost within the code base. In the long
+run, the prototype has become a part of the system but is filled with
+bugs, unhandled corner cases and, frequently, cruddy code. Nobody
+remembers what it was supposed to do or whether it is really
 important. Maintainability is deeply affected and developers get that
 natural and unpleasant I-told-you-so feeling. %TODO trauma?
 
@@ -116,42 +118,41 @@ absolutely no knowledge about software development.  He wanted to
 mature the idea and understand how much investment it would take to
 turn it into working software in order to establish his business
 plan. The company's job at the time was to scout the market, discover
-competitors and provide an estimation of the work needed to develop
+competitors and provide an estimation of the work required to develop
 the client's idea.
 
-For such work, one consultant was assigned to understand what were the
-client's needs and desires and two developers were asked to analyze
-the existing script writing programs and evaluate the possible
-development paths. After about 3 weeks of consulting and studies, the
-team handed a deck full of story cards with two estimates each, based
-on the use of two possible platforms. The first platform was an
-existing open source software with several features and a copy-left
-license; the second one was an Eclipse Rich Client
+For this, a consultant was assigned to understand the client's needs
+and desires and two developers were asked to analyze the existing
+script writing programs and evaluate the possible development
+paths. After about 3 weeks of consulting and studies, the team handed
+a deck full of story cards with two estimates each, based on the use
+of two possible platforms. The first platform was an existing open
+source software with several features and a copy-left license; the
+second one was an Eclipse Rich Client
 Application\footnote{http://www.eclipse.org/rcp -- Last accessed on
   27/02/2010} developed from scratch using Eclipse's open source
 framework.
 
-This initial estimation suggested that a four people team dedicating 4
-daily work hours to the project would be able to build a working
-prototype of each feature described in about nine months of
-development using the existing open source software and about one year
-using Eclipse's platform. The open source solution had the advantage
-of providing full functionality of several other features. For a
-complete system, the estimate was well over 2 years of work on the
-Eclipse version and about a year and a half for the open source one.
+This initial estimate suggested that a four people team dedicating
+four daily work hours would be able to build a working prototype of
+each feature in approximately nine months using the existing open
+source software and roughly one year using Eclipse's platform. The
+open source solution had the advantage of providing full functionality
+of several other features. For a complete system, the estimate was
+well over 2 years of work on the Eclipse version and about a year and
+a half for the open source one.
 
 After some discussion, the client opted for the Eclipse based solution
 due to the license restriction of the open source one which conflicted
 with his business plan. He also chose to develop only a prototype of
-the idea since 2 years seemed like a too heavy investment for him
-alone.
+the idea since 2 years seemed like a too heavy investment for him.
 
 After the exploration phase, the consulting contract ended and a new
 negotiable scope contract~\cite{XP} with emphasis on development
-effort was established. This new contract established a team of 4
+effort was signed. This new contract established a team of four
 developers working with an open scope that would be negotiated
 monthly, providing 160 hours of work each month. It specifically
-stated that the developers would work on pairs all the time and that
+stated that the developers would work in pairs all the time and that
 the developed system should have automated tests for the production
 code.
 
@@ -162,7 +163,7 @@ code.
 % "threads" Phase 2 => create script from scratch / edit script text /
 % "mundo das fichas" Phase 3 => read RTF / read and export FDR
 
-The features initially presented to the team were grouped by the
+The features initially presented to the team were organized by the
 client into 3 priority groups. The first group contained all features
 most critical to the client, the ones that would allow him to
 experiment with his ``big idea''. The second one comprised of some
@@ -179,8 +180,8 @@ would use this prototype to present his ideas to investors by October
 full featured system if the investors liked the idea or end its
 development in case they rejected it.
 
-That was the team's vision of the project when development begun. A
-short seven months project whose fate would be decided by its capacity
+That was the team's vision of the project when development began. A
+short seven month project whose fate would be decided by its capacity
 to impress investors. Therefore, the main goal was to provide support
 for the client's demonstration to ensure the project's growth and
 success. The next section (Section \ref{sec:working}) describes how
@@ -198,35 +199,36 @@ likely crash if the user did not behave as expected. We also
 incorporated several spikes as permanent solutions and did not handle
 a fair amount of exceptions, ignoring errors.
 
-The team knew since the beginning that the client would change his
-mind over time. After all, it was partly to better understand his idea
-and its applicability that he wanted to build this prototype. This
-meant that features would be developed to later be thrown away while
-code produced only for a quick spike was going to become part of the
+The team knew from the start that the client would change his mind
+over time. After all, it was partly to better understand his idea and
+its applicability that he wanted to build this prototype. This meant
+that features would be developed to later be thrown away while code
+produced only for a quick spike was going to become part of the
 system. Therefore, since the beginning the team invested in design,
 automated tests and refactoring, just enough to keep the system
 flexible to receive the next changes. The team also made it clear to
 the client that some work would need to be done on features after he
 accepted them in order to polish the work.
 
-Since the start, the team installed a continuous integration
+From the start, the team installed a continuous integration
 server\footnote{http://www.jetbrains.com/teamcity/ - Last accessed on
   27/02/2010} to automatically build a new version of the system
 hourly. This way, the client could follow the system's evolution, test
 the features and provide feedback within a very short time span. This
-allowed for absolutely no surprises in review meetings and improved
-the team's ability to tune each feature as they were released.
+allowed for absolutely no surprises in review meetings and greatly
+improved the team's ability to tune each feature as they were
+released.
 
-The first few iterations went quite smooth, developing features from
+The first few iterations went quite smoothly, developing features from
 the first phase which involved importing a script in a text-only
 format marked with some meta-data and providing a simple way to
 manipulate and visualize this data. For these first features, it was
-easy to avoid inconsistencies since there were not many business rules
+easy to avoid inconsistencies since there were few business rules
 involved.
 
 Meanwhile, the client's demonstration script was evolving as the
 prototype did and the team was able to use conditionals as needed to
-ignore cases he would not enter in during his presentation to
+ignore cases he would not enter during his presentation to
 investors. By October 2008, the main features from the first group
 were ready for demonstration, although not finished and polished for
 real use. However, by testing and playing with these features, the
@@ -240,22 +242,22 @@ to detail stories related to this editor.
 
 As a result of this discovery, the client did not feel completely
 confident to present the software to the investors; even so, he
-started to make contact with a few people to schedule a meeting to
+started to make contact with a few people to schedule a meeting during
 December 2008. That date became our new deadline toward which all
 efforts should be focused on making a prototyped text editor available
 for the demonstration.
 
 At this point, the pressure for polishing the new features increased
-since the project's fate would be decided at the demonstration and it
-was close! The customer wanted the team to ignore corner cases, speed
-up delivery and ensure the demonstration would run smoothly. The
-excitement from the important presentation to other people (only our
-one client and us had seen the software so far) was a strong
-motivation for the development team to deliver all features the client
-had asked for. Yet, despite unit testing and pair programming being
-mandatory rules on the team, the general will to quickly deliver the
+because time was running out for the demonstration that would decide
+the project's fate. The customer wanted the team to ignore corner
+cases, speed up delivery and ensure the demonstration would run
+smoothly. The excitement from the important presentation to other
+people (only our client and us had seen the software so far) was a
+strong motivation for the development team to deliver all features the
+client had asked for. Yet, despite unit testing and pair programming
+being mandatory rules, the general will to quickly deliver the
 features decreased the code quality considerably. However, external
-interference was about to change the situation a bit. Section
+interference was about to change the situation. Section
 \ref{sec:changes} will explain how the project got affected and what
 new direction those changes pointed to.
 
@@ -265,61 +267,60 @@ new direction those changes pointed to.
 December 2008 came and went without any meeting. The company that the
 client was in contact with had just been acquired by another one so
 any project presentation was useless until things settled down. This
-relieved the team of the pressure of the upcoming deadline and we
-finally acknowledged the burden of unhandled technical debt. All
-members of the development team agreed that the code was getting
-complex and the quality was decreasing, which had a negative effect on
-productivity and speed. This combined nicely with the client's request
-for a more complete text editor, with less mock-ups and
-simplifications. The first iteration of 2009 was dedicated entirely to
-refactoring the prototyped editor we had so far, and the iterations
-that followed further developed this editor to include more business
-rules.
+relieved the pressure of the upcoming deadline and we finally
+acknowledged the burden of unhandled technical debt. All members of
+the development team agreed that the code was getting complex and the
+quality was decreasing, which had a negative effect on productivity
+and speed. This combined nicely with the client's request for a more
+complete text editor, with less mock-ups and simplifications. The
+first iteration of 2009 was dedicated entirely to refactoring the
+prototyped editor we had so far, and the iterations that followed
+further developed this editor to include more business rules.
 
 Although the meeting with investors was mentioned in this period,
 again it did not take place. The general feeling the development team
 had was that the project was no longer aimed at a simple presentation
-to investors. It was softly switching to a more elaborate end-user
+to investors. It was slowly switching to a more elaborate end-user
 oriented application. This seemed to be confirmed by two important and
 concomitant changes that happened between June and July 2009.
 
 In that period, the client was asking for a much more complex and
-full-featured text editor and, at the same time, was exploring and
+full-featured text editor. At the same time, he was exploring and
 wanted to develop new features as an evolution and complement to his
 previous idea. At this point, the client started to understand the
 dilemma that the developers had felt so far.  How to keep a good
 rhythm of new feature delivery and still cover most use cases of
 existing features?
 
-The team estimated that to have an editor with the more complex
-functionality expected by the client would take at least three full
-iterations. He did not welcome this news, since it would mean that no
-new features would be added for a while and he wanted to explore them
-with the investors' meeting still in mind.  We then decided to
-investigate other possible solutions to the text editor instead of
-just developing from scratch. After some research we discovered an
-open source Eclipse Rich Client WYSIWYG (What You See Is What You Get)
-HTML editor\footnote{\url{http://onpositive.com/richtext/} -- Last
-  accessed on 20/02/2010}. The editor relies on a reimplementation of
-Eclipse's \texttt{StyledText} component which is responsible for
-rendering text within Eclipse editors. This project was close enough
-from the one we needed to implement, having some of the functionality
-our client wanted on our application, and was mostly maintained by one
-Russian company. So, we suggested the possibility of outsourcing the
-development of the underlying text editor infra-structure to this
-company, thus enabling us to continue working on the new features the
-client wanted. He accepted this idea and this was the first change
-that confirmed the shift towards a more full-featured system.
+The team estimated that it would take at least three full iterations
+to have an editor with the more complex functionality expected by the
+client. He did not welcome this news, since it would mean that no new
+features would be added for a while and he wanted to explore them with
+the investors' meeting still in mind.  We then decided to investigate
+other possible solutions to the text editor instead of just developing
+from scratch. After some research we discovered an open source Eclipse
+Rich Client WYSIWYG (What You See Is What You Get) HTML
+editor\footnote{\url{http://onpositive.com/richtext/} -- Last accessed
+  on 20/02/2010}. The editor relies on a reimplementation of Eclipse's
+\texttt{StyledText} component which is responsible for rendering text
+within Eclipse editors. This project was close enough from the one we
+needed to implement, having some of the functionality our client
+wanted on our application, and was mostly maintained by one Russian
+company. We suggested the possibility of outsourcing the development
+of the underlying text editor infra-structure to this company, thus
+enabling us to continue working on the new features the client
+wanted. He accepted this idea and this was the first change that
+confirmed the shift towards a more full-featured system.
 
 At the same time, the team learned that the client had formed a
 dramaturgy experts group to help him better understand how to
 structure the application, the existing features and the new ones. The
 software was now going to have a set of beta testers and it needed to
-perform decently to allow the users to suggest improvements for
-it. However, the current development approach would not be able to
-support this new use of the system. The change had to be clear to the
-client so that development efforts would be directed to address this
-new way of working.
+perform decently to allow the users to suggest improvements. However,
+the current development approach would not be able to support this new
+use of the system. The change had to be clear to the client so that
+development efforts would be directed to address this new way of
+working.
 
 The evidence of the software's deficiency came quickly from the
 dramaturgy study group. They started having trouble with several known
@@ -333,15 +334,15 @@ Meanwhile, the development team was concerned with the increasing
 complexity so they started to track some data from the source
 code. The first metrics were the amount of \texttt{FIXME},
 \texttt{TODO} and \texttt{XXX} marks in the code. Since the beginning,
-the development team had added those marks everywhere they felt a corner
-case or a behavior existed but was not handled. Each mark had a small
-comment associated and the kind of the mark determined the critically
-of the problem. Figure \ref{fig:TODOs} shows the evolution of those
-marks during the project.
+the development team had added those marks everywhere they felt a
+corner case or a behavior existed but was not handled. Each mark had a
+small comment associated and the kind of the mark determined the
+criticality of the problem. Figure \ref{fig:TODOs} shows the evolution
+of those marks during the project.
 
 \begin{figure}[hbt]
   \centerline{
-    \includegraphics[width=120mm]{TODOs.png}
+    \includegraphics[width=120mm]{TODOs}
   }
   \caption{Evolution of FIXME, TODO and XXX marks in the source code}
   \label{fig:TODOs}
@@ -357,11 +358,11 @@ other practices that allowed us to handle this shift.
 \section{Adapting to the new rules}
 \label{sec:adapting}
 
-While the amount of \texttt{TODO} marks was fairly high, the team
-still had to develop new prototyped features and therefore they
-decided to just track it and try to keep it under control. While this
-gave the team some idea of code complexity, it did not help in showing
-if this complexity was being tamed by tests.
+The amount of \texttt{TODO} marks was fairly high but the team still
+had to develop new prototyped features and therefore they decided to
+just track it and try to keep it under control. While this gave the
+team some idea of code complexity, it did not help to show if this
+complexity was being tamed by tests.
 
 By the beginning of August 2009, the client decided that it was
 important for him to be able to see the evolution of the work done by
@@ -382,13 +383,13 @@ As with the \texttt{TODO} metric, the lines of code showed the team a
 small issue regarding testing but it was not addressed immediately. It
 was well known that the code was not highly covered since there were
 no User Interface (UI) tests and quite a few features were related to
-the way data was shown to the user. However, the team had a feeling
-that the effort to test the controller and model would have produced
-more test than code.
+the way data was shown. However, the team had a feeling that the
+effort to test the controller and model would have produced more test
+than code.
 
 \begin{figure}[hbt]
   \centerline{
-    \includegraphics[width=120mm]{LOCs.png}
+    \includegraphics[width=120mm]{LOCs}
   }
   \caption{Evolution of production lines of code and test lines of
     code}
@@ -421,7 +422,7 @@ this number would lead to a more factored code.
 
 \begin{figure}[hbt]
   \centerline{
-    \includegraphics[width=120mm]{InstanceOfs.png}
+    \includegraphics[width=120mm]{InstanceOfs}
   }
   \caption{Evolution of instanceof in the code }
   \label{fig:InstanceOfs}
