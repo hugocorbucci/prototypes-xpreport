@@ -14,7 +14,7 @@ end
 def plot nome_imagem, arquivo_de_dados, colunas, tamanho = "800, 400"
   Gnuplot.open do |gp|
     Gnuplot::Plot.new( gp ) do |plot|
-      plot.set "terminal png size #{tamanho}"
+      plot.set "terminal png size #{tamanho} xffffff x000000 x202020 xA0A0A0 xC0C0C0 x606060"
       plot.set 'output', "#{nome_imagem}.png"
       plot.title  nome_imagem
       plot.set 'nogrid'
@@ -22,7 +22,7 @@ def plot nome_imagem, arquivo_de_dados, colunas, tamanho = "800, 400"
       plot.set 'timefmt', '"%d-%m-%Y"'
       plot.xrange "[\"03-07-2009\":\"18-02-2010\"]"
       plot.set 'xtics', "nomirror \"03-07-2009\", 2419200, \"18-02-2010\""
-      plot.yrange "[0:60]"
+      plot.yrange "[0:100]"
 
       colunas.each_with_index do |coluna, indice|
         plot.data << plot_info(arquivo_de_dados, indice+2, coluna)
